@@ -72,8 +72,6 @@ footer {
 #navigation {
   overflow: hidden;
   background-color: #3286AA;
-  grid-column: 1/6;
-  grid-row: 3;
   display: flex;
   flex-wrap: wrap;
 }
@@ -83,19 +81,23 @@ footer {
   text-align: center;
   height: 30px;
   text-decoration: none;
-  width: 20%;
+  width: 16.65%;
   line-height: 30px;
   font-size: 14px;
+  font-family: sans-serif;
 }
 a:hover {
   color: #7faae5;
-  background-image: linear-gradient(#140338, #214372);
+  background-color: #2B7493;
   border-color: #d4d4d4;
   font-weight: bold;
-  border-radius: 5px;
 } 
-#search{
-  margin-right: 20px;
+.active {
+  background-color:#2B7493 ;
+  font-weight: bold;
+}
+.search{
+  margin-right: 50px;
 }
 
 #hamburger-menu{
