@@ -7,7 +7,7 @@ function domloaded(){
     var ctx = can.getContext('2d');
 
     var x = 0, y = can.height;
-    var speed = 4;
+    var speed = 2;
 
     function draw() {
         //Draw canvas
@@ -32,6 +32,5 @@ function domloaded(){
       } 
     draw();
 }
-draw();
 
 
