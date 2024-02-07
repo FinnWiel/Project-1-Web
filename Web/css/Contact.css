@@ -1,0 +1,21 @@
+
+header{
+    background-color: #3286AA;
+}
+#Navbar{
+   text-decoration: none;
+   color: aliceblue;
+}
+form {
+    background-color: #F6F6F6;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ 
+}
+input{
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    margin-right: 8px;
+    width: auto;
+ 
+}
