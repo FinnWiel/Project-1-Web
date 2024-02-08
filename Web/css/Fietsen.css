@@ -1,0 +1,20 @@
+.main-page{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.main-page > .fiets{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: 20px;
+    aspect-ratio: 1.5;
+    background-color: lightgray;
+}
+
+.clear { clear: both; height: 100px; }
