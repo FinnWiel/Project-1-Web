@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/Openingstijden.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/fiets.js"></script>
+  <script src="js/main.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   <title>Openingstijden</title>
 </head>
@@ -30,14 +31,21 @@
     </div>
   </header>
 
-  <nav id="navigation">
+  <nav id="navigation" class="hideNav">
     <a href="index.html">Home</a>
     <a href="Fietsen.html">Fietsen</a>
     <a href="Verhuur.html">Verhuur</a>
     <a href="Contact.html">Contact</a>
     <a class="active" href="Openingstijden.html">Openingstijden</a>
     <a href="Overons.html">Over ons</a>
+    <a class="hide" href="cart.html">Winkelwagen</a>
   </nav>
+
+  <div id="burger-icon" onclick="toggleMobileNav()" class="nav-toggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
 
   <div class="footer">
     <canvas id="canvas"></canvas>
