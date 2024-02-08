@@ -12,13 +12,13 @@ function domloaded(){
     function draw() {
         //Draw canvas
         can.width = window.innerWidth
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "#56BDE9";
         ctx.fillRect(0, 0, can.width, can.height);
       
         //Draw bike
         ctx.beginPath();
         ctx.font = '30px FontAwesome';
-        ctx.fillStyle = '#3286aa';
+        ctx.fillStyle = 'white';
         ctx.fillText('\uf206', x, y); //'\uf206' is unicode for the bike 
         ctx.fill();
       
