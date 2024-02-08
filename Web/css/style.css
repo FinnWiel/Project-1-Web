@@ -74,6 +74,8 @@ footer {
 #navigation {
   overflow: hidden;
   background-color: #3286AA;
+  grid-column: 1/6;
+  grid-row: 3;
   display: flex;
   flex-wrap: wrap;
 }
@@ -83,16 +85,16 @@ footer {
   text-align: center;
   height: 30px;
   text-decoration: none;
-  width: 16.65%;
+  width: 20%;
   line-height: 30px;
   font-size: 14px;
-  font-family: sans-serif;
 }
 a:hover {
   color: #7faae5;
-  background-color: #2B7493;
+  background-image: linear-gradient(#140338, #214372);
   border-color: #d4d4d4;
   font-weight: bold;
+  border-radius: 5px;
 } 
 #search{
   margin-right: 20px;
