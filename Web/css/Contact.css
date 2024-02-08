@@ -1,0 +1,43 @@
+article {
+    padding: 20px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+  }
+  #Formtitel{
+    width: 90%;
+    height: 60px;
+    background-color: #EAEAEA;
+    border-radius: 30px;
+    text-align: center;
+    justify-items: center;
+  }
+  
+  form {
+  
+    padding: 20px; 
+    border-radius: 10px; 
+    width: 90%; 
+  }
+  
+  form label {
+    margin-bottom: 10px; 
+  }
+  
+  form input {
+    color: black;
+    background-color: #EAEAEA;
+    width: 100%; 
+    height: 60px;
+    padding: 8px; 
+    margin-bottom: 15px; 
+    border-radius: 30px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box; 
+  }
+  
+ 
+  
+  
