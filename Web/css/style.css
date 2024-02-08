@@ -42,6 +42,10 @@ footer {
   justify-content: center;
   align-items: center;
 }
+footer a {
+  color:white;
+  text-decoration: none;
+}
 .fa {
   padding: 5px;
   font-size: 30px;
@@ -103,7 +107,7 @@ footer {
   font-size: 14px;
   font-family: sans-serif;
 }
-a:hover {
+#navigation a:hover {
   color: #7faae5;
   background-color: #2B7493;
   border-color: #d4d4d4;
