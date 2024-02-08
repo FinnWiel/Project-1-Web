@@ -124,5 +124,20 @@ a:hover {
 #fortnitelogo{
   margin: 0;
 }
+#burger-icon {
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 16px;
+  right: 5px;
+  z-index: 1000;
+}
+
+.bar {
+  width: 25px;
+  height: 4px;
+  background-color: #fff;
+  margin: 6px 0;
+}
   
 }
