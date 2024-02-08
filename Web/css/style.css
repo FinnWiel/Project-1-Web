@@ -47,6 +47,11 @@ footer a {
   color:white;
   text-decoration: none;
 }
+
+#year{
+  margin-right: 5px;
+}
+
 .fa {
   padding: 5px;
   font-size: 30px;
@@ -124,7 +129,7 @@ footer a {
   gap: 1em;
 }
 
-.search > img {
+.search > img, .search > label {
   color: white;
   cursor: pointer;
 }
