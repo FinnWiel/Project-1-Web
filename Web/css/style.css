@@ -22,6 +22,10 @@ canvas {
   gap: 1rem;
 }
 
+.page-container{
+  min-height: 100dvh;
+  position: relative;
+}
 .footer {
   position: absolute;
   display: flex;
@@ -92,22 +96,9 @@ a:hover {
   border-color: #d4d4d4;
   font-weight: bold;
 } 
-<<<<<<< HEAD
 #search{
   margin-right: 20px;
   border-radius: 10px;
-=======
-.active {
-  background-color:#2B7493 ;
-  font-weight: bold;
-}
-.search{
-  margin-right: 50px;
-}
-
-#hamburger-menu{
-  display: none;
->>>>>>> 489198ce8d9f230eaedcebe5de6df8eddc11eaf3
 }
 
 @media only screen and (max-width: 820px) {
