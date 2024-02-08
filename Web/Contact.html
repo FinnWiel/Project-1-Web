@@ -13,32 +13,54 @@
     <title>Contact</title>
   </head>
   <body class="page-container">
-    <header class="header-flex">
-      <div id="fortnite">
-        <img
-          id="fortnitelogo"
-          src="/Web/img/FluitendeFietserLogo.png"
-          alt="Fluitende Fietser Logo"
-        />
-      </div>
+    <div class="content">
+      <header class="header-flex">
+        <div id="fortnite">
+          <img
+            id="fortnitelogo"
+            src="/Web/img/FluitendeFietserLogo.png"
+            alt="Fluitende Fietser Logo"
+          />
+        </div>
 
-      <div class="search">
-        <i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i>
-        <input id="search" type="search" placeholder="Zoeken.." />
-      </div>
-    </header>
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i>
+          <input id="search" type="search" placeholder="Zoeken.." />
+        </div>
+      </header>
 
-    <nav id="navigation" onclick="toggleMobileNav">
-      <a class="active" href="tournament.html">TOURNAMENT</a>
-      <a href="about.html">ABOUT US</a>
-      <a href="store.html">STORE</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">CONTACT</a>
-    </nav>
-    <article>
-      <div id="Formtitel">Contactformulier</div>
-      <form>
-        <input
+      <nav id="navigation" onclick="toggleMobileNav">
+        <a class="active" href="tournament.html">TOURNAMENT</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="store.html">STORE</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+      <article>
+        <div id="Formtitel">Contactformulier</div>
+        <form class="contact-form">
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="Voornaam"
+            required
+          /><br />
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            placeholder="Achternaam"
+            required
+          />
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <input
           type="text"
           id="fname"
           name="fname"
@@ -59,15 +81,51 @@
           placeholder="Email"
           required
         />
-      </form>
-    </article>
-    <div class="footer">
-      <canvas id="canvas" style="background: rgba(34, 45, 23, 0)"></canvas>
-      <footer>
-        Over ons - Contact - info@fluitendefietser.nl - Facebook Pagina -
-        Algemene Voorwaarden - KVK: 88599665 | BTW NL999888492Z09 - © 2024
-        Fluitende Fietser
-      </footer>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        </form>
+      </article>
+      <div class="footer">
+        <canvas id="canvas"></canvas>
+        <footer>
+          Over ons - Contact - info@fluitendefietser.nl - Facebook Pagina -
+          Algemene Voorwaarden - KVK: 88599665 | BTW NL999888492Z09 - © 2024
+          Fluitende Fietser
+        </footer>
+      </div>
     </div>
   </body>
 </html>

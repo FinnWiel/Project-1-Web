@@ -22,12 +22,9 @@ canvas {
   gap: 1rem;
 }
 
-.page-container{
-  min-height: 100dvh;
-  position: relative;
-}
+
 .footer {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   left: 0;
@@ -36,6 +33,7 @@ canvas {
   background: var(--primary-color);
   color: white;
   font-family: sans-serif;
+  margin-top: 10px;
 }
 
 footer {
