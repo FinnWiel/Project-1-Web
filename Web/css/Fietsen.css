@@ -4,17 +4,19 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .main-page > .fiets{
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 40%;
-    margin: 20px;
-    aspect-ratio: 1.5;
-    background-color: lightgray;
+    align-items: left;
+    flex-direction: column;
+    margin: 10px 10px;
+    border-radius: 10px;
+    min-width: 50px;
+    width: 600px;
 }
 
-.clear { clear: both; height: 100px; }
+.fiets > img {
+    max-width: 600px;
+}

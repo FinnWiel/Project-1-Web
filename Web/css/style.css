@@ -3,6 +3,8 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-y: auto;
 }
 
 :root{
@@ -22,6 +24,9 @@ canvas {
   gap: 1rem;
 }
 
+.clear { 
+  clear: both; height: 150px; 
+}
 
 .footer {
   position: fixed;
@@ -100,6 +105,9 @@ footer a {
   overflow: hidden;
   background-color: #3286AA;
   flex-wrap: wrap;
+  z-index: 1;
+  position: sticky;
+  top: 0px;
 }
 #navigation a {
   float: left;
@@ -156,6 +164,12 @@ footer a {
   justify-content: space-around;
   align-items: center;
 }
+
+header{
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
 .search {
   display: none;
 }
@@ -174,7 +188,8 @@ footer a {
 }
 
 #navigation{
-  position: absolute;
+  position: sticky;
+  top: 80px;
   width: 100%;
   margin-top: 50px;
   text-align: center;
@@ -188,7 +203,6 @@ footer a {
   width: 100%;
   padding: .5rem;
   background-color: #4BA5CB;
-
 }
 
 #navigation > a:first-child{
@@ -203,7 +217,7 @@ footer a {
   padding: 10px;
   position: absolute;
   top: 16px;
-  right: 5px;
+  right: 20px;
   z-index: 1000;
 }
 
