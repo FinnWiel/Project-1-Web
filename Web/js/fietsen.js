@@ -21,7 +21,7 @@ fetch(jsonFile)
                       <p class="fietsNaam">${name}</p>
                       <p>${price}</p>
                   </div>
-                  <a href="fiets-kopen.html?id=${id}" class="addCart">Kopen</a>
+                  <a href="fiets-kopen.html?id=${id}" class="addCart">Meer info</a>
               </div>
           </div>
       `;
