@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"name": "Gazelle CityGo",
+		"price": "$769,00",
+		"image": "img/Gazelle_CityGo_C7 1.png"
+	},
+	{
+		"id": 2,
+		"name": "Gazelle Orange",
+		"price": "$999,00",
+		"image": "img/Gazelle_CityGo_C7 1.png"
+	},
+	{
+		"id": 3,
+		"name": "Stella Allegra",
+		"price": "$2199,00",
+		"image": "img/Stella_Allegra_voorwielmotor 1.png"
+	},
+	{
+		"id": 4,
+		"name": "Pelikaan Carry on Lady",
+		"price": "$679,00",
+		"image": "img/Pelikaan_Carry_On_Lady 1.png"
+	}
+]
