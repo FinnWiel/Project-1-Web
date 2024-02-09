@@ -1,0 +1,48 @@
+.main-page{
+    max-width: 1100px;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+    margin-top: 80px;
+    flex-wrap: wrap;
+}
+
+.openingstijdenTitel{
+    padding: 1rem 9em;
+    background-color: rgb(231, 229, 229);
+    border-radius: 10px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.weekDag{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(231, 229, 229);
+    padding: 0 1rem;
+    border-radius: 10px;
+}
+
+.containerOpen{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.adresInfo{
+    background-color: rgb(231, 229, 229);
+    padding: 1em;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 820px) {
+    .main-page{
+        margin-top: 10px;
+        gap: 30px;
+    }
+    .addres{
+        border-top: 5px dotted rgb(231, 229, 229);
+    }
+}
