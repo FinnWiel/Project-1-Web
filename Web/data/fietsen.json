@@ -2,25 +2,37 @@
 	{
 		"id": 1,
 		"name": "Gazelle CityGo",
+		"brand": "Gazelle",
 		"price": "$769,00",
-		"image": "img/Gazelle_CityGo_C7 1.png"
+		"image": "img/Gazelle_CityGo_C7 1.png",
+		"color": "zwart",
+		"description": "desc"
 	},
 	{
 		"id": 2,
 		"name": "Gazelle Orange",
+		"brand": "Gazelle",
 		"price": "$999,00",
-		"image": "img/Gazelle_CityGo_C7 1.png"
+		"image": "img/Gazelle_CityGo_C7 1.png",
+		"color": "zwart",
+		"description": "desc"
 	},
 	{
 		"id": 3,
 		"name": "Stella Allegra",
+		"brand": "Stella",
 		"price": "$2199,00",
-		"image": "img/Stella_Allegra_voorwielmotor 1.png"
+		"image": "img/Stella_Allegra_voorwielmotor 1.png",
+		"color": "zwart",
+		"description": "desc"
 	},
 	{
 		"id": 4,
 		"name": "Pelikaan Carry on Lady",
+		"brand": "Pelikaan",
 		"price": "$679,00",
-		"image": "img/Pelikaan_Carry_On_Lady 1.png"
+		"image": "img/Pelikaan_Carry_On_Lady 1.png",
+		"color": "zwart",
+		"description": "Dit is een elektrische fiets geschikt voor zakelijk en prive gebruik. Het is een transport fiets gemaakt voor dames."
 	}
 ]

@@ -9,27 +9,36 @@ const jsonFile = "data/fietsen.json";
 const searchParams = new URLSearchParams(window.location.search);
 let item = searchParams.get('id');
 
+
 fetch(jsonFile)
 	.then((respone) => {
 		return respone.json();
 	})
 	.then((data) => {
 		data.filter(x => x.id == item).map((procuct) => {
-            console.log(procuct);
-			const { id, name, price, image } = procuct;
+			const { id, name, price, image, brand, description, color } = procuct;
 			main.innerHTML += 
 			`
             <div class="fiets">
-                <img src="${image}" alt="${name}">
-                <div class="fietsOut">
-                    <div class="fietsInner">
-                        <p class="fietsNaam">${name}</p>
-                        <p>${price}</p>
+            <img src="${image}" alt="${name}">
+            <div class="fietsOut">
+                <div class="fietsInner">
+                    <div class="nameBrand">
+                        <h3 class="fietsNaam">${name}</h3>
+                        <p>${brand}</p>
                     </div>
-                    <button class="addCart">Kopen</button>
+                    <p class="price">${price}</p>
+                    <div class="extraInfo">
+                        <p>${description}</p>
+                        <p>Kleur: ${color}</p>
+                    </div>
+    
                 </div>
+                <button class="addCart"> <img src="img/cart-shopping-solid.svg" alt="cart icon" height="40px">Toevoegen aan winkelwagen</button>
             </div>
+        </div>
         `;
 		});
     });
+
 });

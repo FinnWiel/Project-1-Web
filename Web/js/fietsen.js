@@ -12,7 +12,6 @@ fetch(jsonFile)
   .then((data) => {
     data
       .map((procuct) => {
-        console.log(procuct);
         const { id, name, price, image } = procuct;
         main.innerHTML += `
           <div class="fiets">
