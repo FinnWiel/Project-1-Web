@@ -20,7 +20,7 @@
     <div class="search">
       <div class="search">
         <label for="search">
-          <img src="img/magnifying-glass-solid.svg" alt="search icon" height="25px" >
+          <img src="img/magnifying-glass-solid.svg" alt="search icon" height="25px">
         </label>
         <input class="searchbar" type="search" placeholder="Zoeken.." id="search">
       </div>
@@ -46,10 +46,64 @@
     <div class="bar"></div>
   </div>
 
-  <article>
-    <p>Onze winkel is nu: Open</p>
-    <p>Voor meer informatie: Bekijk <a href="Openingstijden.html">hier</a> onze openingstijden</p>
-    </p>
+  <article class="article-grid">
+    <div class="opening">
+      <p id="winkeltijd">Onze winkel<br> is nu: <br><span class="opendicht">Open</span></p>
+      <br>
+      <p id="info">Voor meer informatie:<br> Bekijk <a class="opendicht" href="Openingstijden.html">hier</a> onze<br>
+        openings tijden</p>
+    </div>
+    <div class="carousel">
+      <ul class="slides">
+        <input type="radio" name="radio-buttons" id="img1" checked>
+        <li class="slide-container">
+          <div class="slide-image">
+            <img src="img/carousel-foto1.jpg">
+          </div>
+          <div class="carousel-controls">
+            <label for="img3" class="prev-slide">
+              <span>&lsaquo;</span>
+            </label>
+            <label for="img2" class="next-slide">
+              <span>&rsaquo;</span>
+            </label>
+          </div>
+        </li>
+        <input type="radio" name="radio-buttons" id="img2">
+        <li class="slide-container">
+          <div class="slide-image">
+            <img src="img/carousel-foto2.jpg">
+          </div>
+          <div class="carousel-controls">
+            <label for="img1" class="prev-slide">
+              <span>&lsaquo;</span>
+            </label>
+            <label for="img3" class="next-slide">
+              <span>&rsaquo;</span>
+            </label>
+          </div>
+        </li>
+        <input type="radio" name="radio-buttons" id="img3">
+        <li class="slide-container">
+          <div class="slide-image">
+            <img src="img/carousel-foto3.jpg">
+          </div>
+          <div class="carousel-controls">
+            <label for="img2" class="prev-slide">
+              <span>&lsaquo;</span>
+            </label>
+            <label for="img1" class="next-slide">
+              <span>&rsaquo;</span>
+            </label>
+          </div>
+        </li>
+        <div class="carousel-dots">
+          <label for="img1" class="carousel-dot" id="img-dot-1"></label>
+          <label for="img2" class="carousel-dot" id="img-dot-2"></label>
+          <label for="img3" class="carousel-dot" id="img-dot-3"></label>
+        </div>
+      </ul>
+    </div>
   </article>
 
   <div class="clear"></div>
