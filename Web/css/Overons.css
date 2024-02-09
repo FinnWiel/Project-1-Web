@@ -1,0 +1,51 @@
+
+.Overons-page{
+
+    flex-direction: row;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.items{
+    background-color: #EAEAEA;
+    margin: 10px 10px;
+    border-radius: 10px;
+    padding: 20px;
+}
+#Historische-foto > img{
+    max-width: 900px;
+    
+}
+#tekst{
+    width: 60%;
+    height: auto;
+} 
+@media only screen and (max-width: 1300px) {
+    .Overons-page{
+        flex-direction: column;
+    }
+    .items {
+        width: 60%;
+    }
+    #Historische-foto{
+    width: min-content;
+    }
+    #tekst{
+        height: min-content;
+    } 
+}
+@media only screen and (max-width: 500px) {
+    .items {
+        width: 60%;
+    }
+    #Historische-foto {
+        max-width: 100%;
+        height: auto;
+    }
+    #tekst {
+        height: min-content;
+    } 
+}
