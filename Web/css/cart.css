@@ -1,0 +1,43 @@
+#Cart-main{
+    flex-direction: column;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.Product-holder{
+    display: flex; 
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    border-bottom: black 3px solid;
+    line-height: 300%;
+}
+.Product{
+   list-style-type: none;
+   display: flex;
+   flex-direction: row;
+}
+.Product li {
+    display: flex;
+    padding-right: 90%; 
+    line-height: 120%;
+}
+.Amount {
+    margin-left: auto; /* Push "Amount" to the right */
+}
+
+@media screen and (max-width: 768px) {
+    .Product {
+        flex-wrap: wrap;
+    }
+
+    .Amount {
+        margin-top: 10px; /* Add margin-top for spacing */
+        order: 3; /* Change the order to adjust its position */
+        margin-left: 0; /* Reset margin-left */
+    }
+}
