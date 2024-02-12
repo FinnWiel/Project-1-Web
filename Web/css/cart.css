@@ -1,43 +1,78 @@
-#Cart-main{
-    flex-direction: column;
-    position: relative;
+#Cart-main {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
 }
-.Product-holder{
-    display: flex; 
+
+#Product-holder {
+    padding: 20px;
+    padding-bottom: 30px;
+    width: 90%;
+    height: 85%;
+    background-color: #ffffff;
+}
+
+.Products {
+    font-size: 20px;
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: black 2px solid;
+    display: flex;
+}
+
+.Products ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100%;
-    margin-top: 20px;
-    border-bottom: black 3px solid;
-    line-height: 300%;
+    justify-content: space-between;
+
 }
-.Product{
-   list-style-type: none;
-   display: flex;
-   flex-direction: row;
+
+.Products li {
+    list-style: none;
+    margin-bottom: 10px;
+
 }
-.Product li {
-    display: flex;
-    padding-right: 90%; 
-    line-height: 120%;
-}
+
 .Amount {
-    margin-left: auto; /* Push "Amount" to the right */
+    background-color: #D9D9D9;
+    width: max-content;
+    height: max-content;
+    padding: 5px 20px 5px 20px;
+    border-radius: 7px;
+    cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-    .Product {
-        flex-wrap: wrap;
-    }
+.Delete {
+    color: red;
+    text-decoration: underline red;
+    cursor: pointer;
+}
 
-    .Amount {
-        margin-top: 10px; /* Add margin-top for spacing */
-        order: 3; /* Change the order to adjust its position */
-        margin-left: 0; /* Reset margin-left */
+.Products li:nth-last-child(-n+4) {
+    align-self: center;
+}
+
+@media only screen and (max-width: 620px) {
+
+    .Products {
+        font-size: 10px;
+        margin: 20px;
+        background-color: rgb(255, 255, 255);
+        border-bottom: black 2px solid;
+        display: flex;
     }
+}
+.min{
+    background-color: white;
+    border: none;
+}
+.plus{
+    border: none;
+    background-color: white;
 }

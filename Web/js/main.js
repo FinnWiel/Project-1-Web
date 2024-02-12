@@ -51,3 +51,24 @@ function domloaded(){
       } 
     draw();
 }
+
+// Wait for the DOM content to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all elements with the class "Delete"
+  var deleteButtons = document.querySelectorAll('.Delete');
+
+  // Loop through each delete button
+  deleteButtons.forEach(function(button) {
+      // Add click event listener to each delete button
+      button.addEventListener('click', function(event) {
+          // Get the parent element of the clicked delete button (which is the container div)
+          var productContainer = event.target.closest('.Products');
+
+          // Check if the parent container exists
+          if (productContainer) {
+              // Remove the parent container from the DOM
+              productContainer.remove();
+          }
+      });
+  });
+});
