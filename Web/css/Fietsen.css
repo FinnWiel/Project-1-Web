@@ -6,6 +6,7 @@
     align-items: center;
     max-width: 1300px;
     margin: auto;
+    margin-top: 40px;
 }
 
 .main-page > .fiets{
@@ -14,11 +15,51 @@
     align-items: left;
     flex-direction: column;
     margin: 10px 10px;
-    border-radius: 10px;
     min-width: 50px;
-    width: 600px;
 }
 
 .fiets > img {
-    max-width: 600px;
+    max-width: 400px;
+    margin: 4px;
+    border-radius: 10px;
+}
+
+.fiets{
+    border-radius: 10px;
+    width: max-content;
+    border: 2px solid black;
+}
+
+.fietsNaam{
+    font-weight: 700;
+    font-size: 20px; 
+}
+
+.fietsOut{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    border-top: 2px solid black;
+    background-color: rgb(241, 241, 241);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.fietsInner{
+    display: flex;
+    flex-direction: column;
+}
+
+.fietsInner > p{
+    margin: 0;
+}
+
+.addCart{
+    border-radius: 10px;
+    border: none;
+    background-color: #3286aa;
+    color: white;
+    padding:  .8rem 2em;
+    cursor: pointer;
+    text-align: center;
 }
