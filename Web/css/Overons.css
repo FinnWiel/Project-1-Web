@@ -6,45 +6,62 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 60px 20px 20px 20px;
 }
 .items{
-    background-color: #EAEAEA;
+    background-color: #ffffff;
     margin: 10px 10px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px; 
 }
-#Historische-foto > img{
-    max-width: 900px;
-    
+#Historische-foto > img{ 
+    max-width: 100vh; 
 }
 #tekst{
-    width: 60%;
+    width: 100vh;
     height: auto;
+
 } 
 @media only screen and (max-width: 1300px) {
+    
     .Overons-page{
         flex-direction: column;
+     
     }
     .items {
-        width: 60%;
+        width: 100vh;
     }
     #Historische-foto{
     width: min-content;
+    width: auto;
     }
     #tekst{
         height: min-content;
+        padding: 0;
+        
     } 
+}
+@media only screen and (max-width: 780px) {
+    #Historische-foto > img {
+        max-width: 100%;  
+        height: auto;     
+    }
+    #tekst {
+        max-width: 100%;  
+        height: auto;   
+    } 
+
 }
 @media only screen and (max-width: 500px) {
     .items {
-        width: 60%;
+        flex-direction: column;
+      
     }
-    #Historische-foto {
-        max-width: 100%;
-        height: auto;
+    #Historische-foto > img {
+        max-width: 100%;  
+        height: auto;  
     }
     #tekst {
         height: min-content;
+        width: auto;
     } 
 }
