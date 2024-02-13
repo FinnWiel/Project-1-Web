@@ -34,7 +34,7 @@ fetch(jsonFile)
                     </div>
     
                 </div>
-                <button class="addCart"> <img src="img/cart-shopping-solid.svg" alt="cart icon" height="40px">Toevoegen aan winkelwagen</button>
+                <button class="addCart" id="${id}"> <img src="img/cart-shopping-solid.svg" alt="cart icon" height="40px">Toevoegen aan winkelwagen</button>
             </div>
         </div>
         `;
