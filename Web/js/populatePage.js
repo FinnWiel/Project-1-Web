@@ -9,8 +9,8 @@ const jsonFile = "data/fietsen.json";
 const searchParams = new URLSearchParams(window.location.search);
 let item = searchParams.get('id');
 
-
-fetch(jsonFile)
+if(parseInt(item) <= 4 && parseInt(item) != 0){
+    fetch(jsonFile)
 	.then((respone) => {
 		return respone.json();
 	})
@@ -40,5 +40,9 @@ fetch(jsonFile)
         `;
 		});
     });
+}else{
+    main.innerHTML += `<h1>Oops, seems like something went wrong!</h1>`;
+}
+
 
 });
