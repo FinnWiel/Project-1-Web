@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace C__Kassasysteem.Properties
+namespace Kassasysteem.Properties
 {
 
 

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace C__Kassasysteem
+namespace Kassasysteem
 {
     /// <summary>
     /// Interaction logic for App.xaml

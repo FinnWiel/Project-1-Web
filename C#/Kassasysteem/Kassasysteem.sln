@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C# Kassasysteem", "C# Kassasysteem\C# Kassasysteem.csproj", "{BFDBD020-A74A-485E-B50E-1E36FAF873BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kassasysteem", "Kassasysteem\Kassasysteem.csproj", "{ECB9B9B1-EFD4-4400-BAD5-719BDEF7F8C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BFDBD020-A74A-485E-B50E-1E36FAF873BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFDBD020-A74A-485E-B50E-1E36FAF873BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFDBD020-A74A-485E-B50E-1E36FAF873BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFDBD020-A74A-485E-B50E-1E36FAF873BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECB9B9B1-EFD4-4400-BAD5-719BDEF7F8C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECB9B9B1-EFD4-4400-BAD5-719BDEF7F8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECB9B9B1-EFD4-4400-BAD5-719BDEF7F8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECB9B9B1-EFD4-4400-BAD5-719BDEF7F8C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {77D96AF4-221A-4BCC-8520-802F7B51CF7B}
+		SolutionGuid = {76F1CAAE-758C-44E5-BBBB-4BCF8670F5E5}
 	EndGlobalSection
 EndGlobal
