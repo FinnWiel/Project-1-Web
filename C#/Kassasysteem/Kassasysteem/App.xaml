@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:Kassasysteem"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="WindowStyle" TargetType="{x:Type Window}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
     </Application.Resources>
 </Application>
