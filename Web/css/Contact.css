@@ -14,7 +14,8 @@ article {
   width: 60%;
   height: 60px;
   background-color: #EAEAEA;
-  border-radius: 20px;
+  border-radius: 10px;
+  line-height: 100%;
 }
 
 form {
@@ -37,7 +38,7 @@ form input {
   height: 30px;
   padding: 8px;
   margin-bottom: 15px;
-  border-radius: 20px;
+  border-radius: 9px;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
@@ -66,7 +67,7 @@ form input {
   min-height: 50px;
   padding: 8px;
   margin-bottom: 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid #ccc;
   color: black;
   background-color: #EAEAEA;
