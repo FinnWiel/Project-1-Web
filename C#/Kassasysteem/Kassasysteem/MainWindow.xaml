@@ -23,24 +23,26 @@
                 </Image.Source>
             </Image>
 
-            <Grid VerticalAlignment="Center" Margin="0, 20, 0, 0">
+            <Grid Name="gridAllPrices" VerticalAlignment="Center" Margin="0, 20, 0, 0">
             <StackPanel Margin="10,0">
                 <Label FontSize="10" Margin="-3">Fiets</Label>
-                <ComboBox Name="cmbFiets" MinHeight="30">
-                        <ComboBoxItem>Aanhangfiets</ComboBoxItem>
-                        <ComboBoxItem>Bakfiets</ComboBoxItem>
-                        <ComboBoxItem>Driewielfiets</ComboBoxItem>
-                        <ComboBoxItem>Elektrische fiets</ComboBoxItem>
-                        <ComboBoxItem>Kinderfiets</ComboBoxItem>
-                        <ComboBoxItem>Ligfiets</ComboBoxItem>
-                        <ComboBoxItem>Oma fiets</ComboBoxItem>
-                        <ComboBoxItem>Racefiets</ComboBoxItem>
-                        <ComboBoxItem>Speed pedelac</ComboBoxItem>
-                        <ComboBoxItem>Stadsfiets</ComboBoxItem>
-                        <ComboBoxItem>Vouwfiets</ComboBoxItem>
-                        <ComboBoxItem>Zitfiets</ComboBoxItem>
-                    </ComboBox>
-            </StackPanel>
+                    <Grid Name="gridCmb">
+                        <ComboBox Name="cmbFiets" MinHeight="30">
+                            <ComboBoxItem Tag="20,00" >Aanhangfiets</ComboBoxItem>
+                            <ComboBoxItem Tag="35,00">Bakfiets</ComboBoxItem>
+                            <ComboBoxItem Tag="30,00">Driewielfiets</ComboBoxItem>
+                            <ComboBoxItem Tag="30,00">Elektrische fiets</ComboBoxItem>
+                            <ComboBoxItem Tag="15,00">Kinderfiets</ComboBoxItem>
+                            <ComboBoxItem Tag="45,00">Ligfiets</ComboBoxItem>
+                            <ComboBoxItem Tag="12,50">Oma fiets</ComboBoxItem>
+                            <ComboBoxItem Tag="15,00">Racefiets</ComboBoxItem>
+                            <ComboBoxItem Tag="15,00">Speed pedelac</ComboBoxItem>
+                            <ComboBoxItem Tag="12,50">Stadsfiets</ComboBoxItem>
+                            <ComboBoxItem Tag="10,00">Vouwfiets</ComboBoxItem>
+                            <ComboBoxItem Tag="15,00">Zitfiets</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                </StackPanel>
 
 
             <StackPanel Margin="10, 50">
@@ -54,10 +56,10 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <CheckBox>Beschadegingen</CheckBox>
-                        <CheckBox Grid.Row="1">Diefstal</CheckBox>
-                        <CheckBox Grid.Column="1">Rechtsbijstand</CheckBox>
-                        <CheckBox Grid.Row="1" Grid.Column="1">Ongevallen</CheckBox>
+                        <CheckBox Tag="5,00">Beschadegingen</CheckBox>
+                        <CheckBox Tag="10,00" Grid.Row="1">Diefstal</CheckBox>
+                        <CheckBox Tag="5,00" Grid.Column="1">Rechtsbijstand</CheckBox>
+                        <CheckBox Tag="2,50" Grid.Row="1" Grid.Column="1">Ongevallen</CheckBox>
                     </Grid>
 
                 </StackPanel>
@@ -73,10 +75,10 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <CheckBox>Ophaalsevice</CheckBox>
-                        <CheckBox Grid.Row="1">Regenpak</CheckBox>
-                        <CheckBox Grid.Column="1">Lunchpakket basis</CheckBox>
-                        <CheckBox Grid.Row="1" Grid.Column="1">Lunchpakket uitgebreid</CheckBox>
+                        <CheckBox Tag="15,00" >Ophaalsevice</CheckBox>
+                        <CheckBox Tag="10,00" Grid.Row="1">Regenpak</CheckBox>
+                        <CheckBox Tag="12,50" Grid.Column="1">Lunchpakket basis</CheckBox>
+                        <CheckBox Tag="20,00" Grid.Row="1" Grid.Column="1">Lunchpakket uitgebreid</CheckBox>
                     </Grid>
 
                 </StackPanel>
@@ -137,9 +139,8 @@
 
                 
             </Grid>
-            <Grid Background="#525252" VerticalAlignment="Bottom" Height="30">
-                <TextBlock Foreground="white" HorizontalAlignment="Right" Margin="80, 5">Totaal:</TextBlock>
-                <TextBlock Foreground="white" HorizontalAlignment="Right"  Margin="10, 5">$50,00</TextBlock>
+            <Grid Background="#525252" VerticalAlignment="Bottom" Height="40">
+                <TextBlock Foreground="white" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="25, 0">Totaal: $50,00</TextBlock>
             </Grid>
         </Grid>
 

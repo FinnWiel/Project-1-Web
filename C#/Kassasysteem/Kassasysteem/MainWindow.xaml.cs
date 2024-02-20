@@ -39,6 +39,16 @@ namespace Kassasysteem
                 GetSelectedCheckBoxValues(items1, gridVerzekeringen);
                 GetSelectedCheckBoxValues(items2, gridService);
 
+                double bikePrice = GetTagValuesCombobox(cmbFiets);
+                double verzekeringPrice = GetTagValuesCheckbox(gridVerzekeringen);
+                double servicePrice = GetTagValuesCheckbox(gridService);
+
+                double dailyPrice = bikePrice + verzekeringPrice + servicePrice;
+                string dailyPriceString = "€" + (dailyPrice * Convert.ToDouble(aantalDagen) / 100).ToString("N2", System.Globalization.CultureInfo.InvariantCulture);
+
+
+                MessageBox.Show(dailyPriceString);
+
                 cmbFiets.SelectedIndex = -1;
                 txbAantalDagen.Text = "";
                 //TODO: Deselect checkboxes
@@ -123,6 +133,15 @@ namespace Kassasysteem
                 footerTextBlock.Text = aantalDagen + " " + text;
                 dockPanel.Children.Add(footerTextBlock);
 
+                // Add price label
+                TextBlock priceTextBlock = new TextBlock();
+                priceTextBlock.Text = dailyPriceString; // Set your price here
+                priceTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                priceTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                priceTextBlock.Margin = new Thickness(10);
+                DockPanel.SetDock(priceTextBlock, Dock.Bottom);
+                dockPanel.Children.Add(priceTextBlock);
+
                 // Create horizontal StackPanel for delete button
                 StackPanel deleteButtonStackPanel = new StackPanel();
                 deleteButtonStackPanel.Orientation = Orientation.Horizontal;
@@ -191,6 +210,39 @@ namespace Kassasysteem
             // Return the list containing the selected checkbox values
             return selectedValues;
         }
+        private double GetTagValuesCombobox(ComboBox comboBox)
+        {
+            double tagValue = 0.0;
+
+            if (comboBox.SelectedItem is ComboBoxItem selectedItem && double.TryParse(selectedItem.Tag?.ToString().Replace(",", ""), out tagValue))
+            {
+                return tagValue;
+            }else
+            { 
+                return 0;
+            }
+        }
+        private double GetTagValuesCheckbox(Grid grid)
+        {
+            double combinedTagValues = 0.0;
+
+            // Check each control in your container (e.g., a Grid)
+            foreach (var child in grid.Children)
+            {
+                // Check if the control is a CheckBox
+                if (child is CheckBox checkBox && checkBox.IsChecked == true)
+                {
+                    // Parse the tag value to get the double value and add it to the combinedTagValues
+                    if (double.TryParse(checkBox.Tag?.ToString().Replace(",", ""), out double tagValue))
+                    {
+                        combinedTagValues += tagValue;
+                    }
+                }
+            }
+
+            return combinedTagValues;
+        }
+
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
         {
             // Find the parent DockPanel of the delete button
