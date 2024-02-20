@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -28,26 +29,25 @@ namespace Kassasysteem
             InitializeComponent();
         }
 
+        public double totalPrice;
         private void btnToevoegen_Click(object sender, RoutedEventArgs e)
         {       
             if (cmbFiets.SelectedIndex > -1 && !string.IsNullOrEmpty(txbAantalDagen.Text))
             {
                 string selectedFiets = cmbFiets.Text;
                 string aantalDagen = txbAantalDagen.Text;
-                List<string> items1 = new List<string>();
-                List<string> items2 = new List<string>();
-                GetSelectedCheckBoxValues(items1, gridVerzekeringen);
-                GetSelectedCheckBoxValues(items2, gridService);
+                List<string> checkedVerzekering = new List<string>();
+                List<string> checkedService = new List<string>();
+                GetSelectedCheckBoxValues(checkedVerzekering, gridVerzekeringen);
+                GetSelectedCheckBoxValues(checkedService, gridService);
 
                 double bikePrice = GetTagValuesCombobox(cmbFiets);
                 double verzekeringPrice = GetTagValuesCheckbox(gridVerzekeringen);
                 double servicePrice = GetTagValuesCheckbox(gridService);
 
                 double dailyPrice = bikePrice + verzekeringPrice + servicePrice;
-                string dailyPriceString = "€" + (dailyPrice * Convert.ToDouble(aantalDagen) / 100).ToString("N2", System.Globalization.CultureInfo.InvariantCulture);
-
-
-                MessageBox.Show(dailyPriceString);
+                string PriceString = "€" + (dailyPrice * Convert.ToDouble(aantalDagen) / 100).ToString("N2", System.Globalization.CultureInfo.InvariantCulture);
+                
 
                 cmbFiets.SelectedIndex = -1;
                 txbAantalDagen.Text = "";
@@ -74,7 +74,7 @@ namespace Kassasysteem
                 dockPanel.Children.Add(separator1);
 
                 // Verzekeringen
-                if (items1.Count >= 1)
+                if (checkedVerzekering.Count >= 1)
                 {
                     // First StackPanel
                     StackPanel stackPanel1 = new StackPanel();
@@ -82,7 +82,7 @@ namespace Kassasysteem
                     dockPanel.Children.Add(stackPanel1);
 
                     // Add TextBlocks Verzekeringen
-                    foreach (string value in items1)
+                    foreach (string value in checkedVerzekering)
                     {
                         TextBlock textBlock = new TextBlock();
                         textBlock.Text = value;
@@ -99,7 +99,7 @@ namespace Kassasysteem
 
 
                 // Services
-                if(items2.Count >= 1)
+                if(checkedService.Count >= 1)
                 {
                     // Second StackPanel
                     StackPanel stackPanel2 = new StackPanel();
@@ -107,7 +107,7 @@ namespace Kassasysteem
                     dockPanel.Children.Add(stackPanel2);
 
                     // Add TextBlocks to Services
-                    foreach (string value in items2)
+                    foreach (string value in checkedService)
                     {
                         TextBlock textBlock = new TextBlock();
                         textBlock.Text = value;
@@ -135,7 +135,7 @@ namespace Kassasysteem
 
                 // Add price label
                 TextBlock priceTextBlock = new TextBlock();
-                priceTextBlock.Text = dailyPriceString; // Set your price here
+                priceTextBlock.Text = PriceString; // Set your price here
                 priceTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
                 priceTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
                 priceTextBlock.Margin = new Thickness(10);
@@ -185,7 +185,7 @@ namespace Kassasysteem
 
                 // Set the parent StackPanel as the content of the main window
                 orderList.Children.Add(parentStackPanel);
-
+                GetTotalPrice(PriceString);
             }
         }
 
@@ -241,6 +241,14 @@ namespace Kassasysteem
             }
 
             return combinedTagValues;
+        }
+
+        public void GetTotalPrice(string PriceString)
+        {
+            double PriceDouble = double.Parse(PriceString.Substring(1));
+            totalPrice += PriceDouble;
+            string newPrice = (totalPrice / 100).ToString("N2", System.Globalization.CultureInfo.InvariantCulture);
+            tbTotal.Text = "Total: €" + newPrice;
         }
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
