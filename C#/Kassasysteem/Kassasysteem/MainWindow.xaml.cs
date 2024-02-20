@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -133,12 +134,13 @@ namespace Kassasysteem
                 footerTextBlock.Text = aantalDagen + " " + text;
                 dockPanel.Children.Add(footerTextBlock);
 
-                // Add price label
+                // Add Price
                 TextBlock priceTextBlock = new TextBlock();
                 priceTextBlock.Text = PriceString; // Set your price here
                 priceTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
                 priceTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
                 priceTextBlock.Margin = new Thickness(10);
+                priceTextBlock.Name = "priceName";
                 DockPanel.SetDock(priceTextBlock, Dock.Bottom);
                 dockPanel.Children.Add(priceTextBlock);
 
@@ -185,7 +187,7 @@ namespace Kassasysteem
 
                 // Set the parent StackPanel as the content of the main window
                 orderList.Children.Add(parentStackPanel);
-                GetTotalPrice(PriceString);
+                UpdateTotalPrice();
             }
         }
 
@@ -242,13 +244,28 @@ namespace Kassasysteem
 
             return combinedTagValues;
         }
-
-        public void GetTotalPrice(string PriceString)
+        public void UpdateTotalPrice()//DOESNT WORK :(((
         {
-            double PriceDouble = double.Parse(PriceString.Substring(1));
-            totalPrice += PriceDouble;
-            string newPrice = (totalPrice / 100).ToString("N2", System.Globalization.CultureInfo.InvariantCulture);
-            tbTotal.Text = "Total: €" + newPrice;
+            double total = 0.0;
+
+            foreach (var child in orderList.Children)
+            {
+                if (child is DockPanel dockPanel)
+                {
+                    foreach (var dockPanelChild in dockPanel.Children)
+                    {
+                        if (dockPanelChild is TextBlock textBlock && textBlock.Name == "priceName")
+                        {
+                            if (double.TryParse(textBlock.Text.Substring(1), NumberStyles.Currency, CultureInfo.InvariantCulture, out double price))
+                            {
+                                total += price;
+                            }
+                        }
+                    }
+                }
+            }
+
+            tbTotal.Text = total.ToString("N2", CultureInfo.CurrentCulture);
         }
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
@@ -265,6 +282,7 @@ namespace Kassasysteem
                     parentStackPanel.Children.Remove(parentDockPanel);
                 }
             }
+            UpdateTotalPrice();
         }
 
         private DockPanel FindParentOrderItem(Button button)
@@ -292,7 +310,7 @@ namespace Kassasysteem
         private void btnNieuweKlant_Click(object sender, RoutedEventArgs e)
         {
             RemoveAllOrderItems();
-            //Reset all other things
+            UpdateTotalPrice();
         }
     }
 }

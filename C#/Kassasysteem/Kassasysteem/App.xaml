@@ -8,6 +8,5 @@
             <Setter Property="FontFamily" Value="Segoe UI"/>
             <Setter Property="FontSize" Value="14" />
         </Style>
-     
     </Application.Resources>
 </Application>

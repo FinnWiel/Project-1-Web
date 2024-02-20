@@ -140,7 +140,7 @@
                 
             </Grid>
             <Grid Background="#525252" VerticalAlignment="Bottom" Height="40">
-                <TextBlock Name="tbTotal" Foreground="white" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="25, 0">Totaal: $50,00</TextBlock>
+                <TextBlock Name="tbTotal" Foreground="white" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="25, 0">Totaal: $0</TextBlock>
             </Grid>
         </Grid>
 
