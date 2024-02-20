@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kassasysteem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000" MinHeight="470" MinWidth="950"
+        Title="MainWindow" Height="600" Width="1000" MinHeight="550" MinWidth="950"
         Style="{StaticResource WindowStyle}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -97,7 +97,7 @@
                     <RowDefinition Height="80"></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <Button Name="btnToevoegen" Cursor="Hand" Grid.Column="0" Grid.ColumnSpan="2" Margin="2" Background="white" BorderBrush="Transparent">
+                <Button Name="btnToevoegen" Cursor="Hand" Grid.Column="0" Grid.ColumnSpan="2" Margin="2" Background="white" BorderBrush="Transparent" Click="btnToevoegen_Click">
                     Toevoegen aan bestelling
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -115,7 +115,7 @@
                     </Button.Resources>
                 </Button>
 
-                <Button Name="btnNieuweKlant" Cursor="Hand" Grid.Row="1" Grid.Column="1" Margin="2" Background="white" BorderBrush="Transparent">
+                <Button Name="btnNieuweKlant" Cursor="Hand" Grid.Row="1" Grid.Column="1" Margin="2" Background="white" BorderBrush="Transparent" Click="btnNieuweKlant_Click">
                     Nieuwe Klant
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -130,53 +130,8 @@
             <Separator VerticalAlignment="Top" Margin="10 35 10 0" Height="2" BorderThickness="2" BorderBrush="#000"></Separator>
             <Grid>
                 <ScrollViewer Margin="0, 50, 0, 0">
-                    <StackPanel>
-                        <DockPanel Background="white" Margin="10, 5">
-                            <TextBlock VerticalAlignment="Center" Margin="10">Elektrisce Fiets</TextBlock>
-                            <Separator BorderThickness="2" BorderBrush="#000" Margin="0, 10">
-                                <Separator.LayoutTransform>
-                                    <RotateTransform Angle="90" />
-                                </Separator.LayoutTransform>
-                            </Separator>
-                            <StackPanel Margin="10">
-                                <TextBlock>Beschadegingen</TextBlock>
-                                <TextBlock>Diefstal</TextBlock>
-                                <TextBlock>Rechtsbijstand</TextBlock>
-                                <TextBlock>Ongevallen</TextBlock>
-                            </StackPanel>
-                            <Separator BorderThickness="2" BorderBrush="#000" Margin="0, 10">
-                                <Separator.LayoutTransform>
-                                    <RotateTransform Angle="90" />
-                                </Separator.LayoutTransform>
-                            </Separator>
-                            <StackPanel Margin="10">
-                                <TextBlock>Ophaalservice</TextBlock>
-                                <TextBlock>Regenpak</TextBlock>
-                                <TextBlock>Lunchpakket basis</TextBlock>
-                                <TextBlock>Lunchpakket uitgebreid</TextBlock>
-                            </StackPanel>
-                            <Separator BorderThickness="2" BorderBrush="#000" Margin="0, 10">
-                                <Separator.LayoutTransform>
-                                    <RotateTransform Angle="90" />
-                                </Separator.LayoutTransform>
-                            </Separator>
-                            <TextBlock VerticalAlignment="Center" Margin="10">100 dagen</TextBlock>
-
-                            
-                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                                <Separator BorderThickness="2" BorderBrush="#000" Margin="0, 10">
-                                    <Separator.LayoutTransform>
-                                        <RotateTransform Angle="90" />
-                                    </Separator.LayoutTransform>
-                                </Separator>
-                                <Button Name="btnDelete" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Ellipse Margin="10, 0, 0, 0" Fill="#DC1515" Height="10" Width="10"></Ellipse>
-                                        <TextBlock VerticalAlignment="Center" Margin="5" >Delete</TextBlock>
-                                    </StackPanel>
-                                </Button>
-                            </StackPanel>
-                        </DockPanel>
+                    <StackPanel Name="orderList">
+                     <!-- This is where the programatically generated order item goes -->
                     </StackPanel>
                 </ScrollViewer>
 
