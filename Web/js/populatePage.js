@@ -43,6 +43,4 @@ if(parseInt(item) <= 4 && parseInt(item) != 0){
 }else{
     main.innerHTML += `<h1>Oops, seems like something went wrong!</h1>`;
 }
-
-
 });
