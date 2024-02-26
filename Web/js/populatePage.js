@@ -1,11 +1,8 @@
-
 window.addEventListener("load", (event) => {
 //Get data from json file and make it into HTML
 const main = document.querySelector(".kopen-page");
 const jsonFile = "data/fietsen.json";
-
 //change value of item to another id to change the bike displaying
-
 const searchParams = new URLSearchParams(window.location.search);
 let item = searchParams.get('id');
 

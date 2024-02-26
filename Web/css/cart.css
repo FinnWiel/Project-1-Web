@@ -9,11 +9,26 @@
 #Product-holder {
     padding: 20px;
     padding-bottom: 30px;
-    width: 90%;
+    width: 95%;
     height: 85%;
     background-color: #ffffff;
 }
-
+/* checkout */
+.CheckoutHolder{
+    font-size: 20px;
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: black 2px solid;
+    display: flex;
+}
+.CheckoutHolder ul{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
 .Products {
     font-size: 20px;
     margin: 20px;
@@ -21,7 +36,7 @@
     border-bottom: black 2px solid;
     display: flex;
 }
-
+/******************/
 .Products ul {
     padding: 0;
     margin: 0;
@@ -35,6 +50,7 @@
 .Products li {
     list-style: none;
     margin-bottom: 10px;
+    justify-items: center;
 
 }
 
@@ -66,6 +82,15 @@
         border-bottom: black 2px solid;
         display: flex;
     }
+
+    #TotalHolder
+    {
+        font-size: 20px;
+        margin: 20px;
+        background-color: rgb(255, 255, 255);
+        border-bottom: black 2px solid;
+        display: flex;
+    }
 }
 .min{
     background-color: white;
@@ -75,9 +100,22 @@
     border: none;
     background-color: white;
 }
-#Betaal{
+#Checkout{
     background-color: #25B94E;
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 20px;
+    width: min-content;
+    text-decoration: none;
 }
 #Betaal:hover{
+    
 
+}
+#total{
+   list-style-type: none;
 }
