@@ -244,7 +244,7 @@ namespace Kassasysteem
 
             return combinedTagValues;
         }
-        public void UpdateTotalPrice()//DOESNT WORK :(((
+        public void UpdateTotalPrice()
         {
             double total = 0.0;
 
@@ -311,6 +311,13 @@ namespace Kassasysteem
         {
             RemoveAllOrderItems();
             UpdateTotalPrice();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Rekenmachine rekenmachine = new Rekenmachine();
+            rekenmachine.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            rekenmachine.Show();
         }
     }
 }
