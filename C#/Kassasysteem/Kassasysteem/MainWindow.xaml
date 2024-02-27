@@ -87,7 +87,13 @@
                 <Label FontSize="10" Margin="-3">Aantal dagen</Label>
                 <TextBox Name="txbAantalDagen" MinHeight="30"></TextBox>
             </StackPanel>
-                <Button Margin="10,260,10,70" Background="white" Click="Button_Click"> Rekanmachie</Button>
+                <Button BorderBrush="Transparent"  Cursor="Hand" Margin="10,260,10,70" Background="white" Click="Button_Click"> Rekanmachie
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </Grid>
 
             <Grid VerticalAlignment="Bottom" Margin="10, 20">

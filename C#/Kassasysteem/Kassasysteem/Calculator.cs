@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Kassasysteem
 {
@@ -29,12 +30,19 @@ namespace Kassasysteem
         public string Operator { get; set; }
         public Operation RightNumber { get; set; }
 
+        private Regex bracketsRegex = new Regex(@"\(([^()]*)\)");
+
         private Regex powerTo = new Regex("[`^`]", RegexOptions.RightToLeft);
         private Regex additionSubtraction = new Regex("[+-]", RegexOptions.RightToLeft);
         private Regex multiplicationDivision = new Regex("[*/]", RegexOptions.RightToLeft);
 
         public void Parse(string equation)
         {
+            while (bracketsRegex.IsMatch(equation))
+            {
+                equation = ParseBrackets(equation);
+            }
+
             var operatorLocation = additionSubtraction.Match(equation);
             if (!operatorLocation.Success)
             {
@@ -45,9 +53,11 @@ namespace Kassasysteem
                 operatorLocation = powerTo.Match(equation);
             }
 
+
             if (operatorLocation.Success)
             {
                 Operator = operatorLocation.Value;
+                MessageBox.Show(equation); //Shows steps in tree
 
                 LeftNumber = new Operation();
                 LeftNumber.Parse(equation.Substring(0, operatorLocation.Index));
@@ -58,8 +68,26 @@ namespace Kassasysteem
             else
             {
                 Operator = "v";
-                result = double.Parse(equation);
+                try
+                {
+                    result = double.Parse(equation);
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter a valid equation");
+                }
             }
+        }
+
+        private string ParseBrackets(string equation)
+        {
+            return bracketsRegex.Replace(equation, match =>
+            {
+                // Parse the expression within brackets recursively
+                Operation bracketOperation = new Operation();
+                bracketOperation.Parse(match.Groups[1].Value);
+                return bracketOperation.Solve().ToString();
+            });
         }
 
         private double result;
@@ -86,7 +114,7 @@ namespace Kassasysteem
                     result = Math.Pow(LeftNumber.Solve(), RightNumber.Solve());
                     break;
                 default:
-                    throw new Exception("Call Parse first.");
+                    throw new Exception("Parse first.");
             }
 
             return result;

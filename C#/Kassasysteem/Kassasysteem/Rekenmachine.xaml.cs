@@ -31,11 +31,24 @@ namespace Kassasysteem
         private void Button_Click_Number(object sender, RoutedEventArgs e)
         {
             Button clickedButton = (Button)sender;
+            Calculator calculator = new Calculator();
 
             switch (clickedButton.Content.ToString())
             {
                 case "√x":
                     tbCurrentCalc.Text += "√";
+                    break;
+                case "Ans":
+                    if(tbPreviousCalc.Text != "=")
+                    {
+                        string previousAwnser = tbPreviousCalc.Text.Remove(tbPreviousCalc.Text.Length - 1, 1); ;
+                        tbCurrentCalc.Text += calculator.Solve(previousAwnser).ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("There is no previous awnser yet.");
+                    }
+
                     break;
                 default:
                     tbCurrentCalc.Text += clickedButton.Content.ToString();
@@ -46,7 +59,6 @@ namespace Kassasysteem
         private void Calculate(object sender, RoutedEventArgs e)
         {
             Calculator calculator = new Calculator();
-            calculator.Solve(tbCurrentCalc.Text);
             tbPreviousCalc.Text = tbCurrentCalc.Text + "=";
             tbCurrentCalc.Text = calculator.Solve(tbCurrentCalc.Text).ToString();
         }
@@ -65,6 +77,11 @@ namespace Kassasysteem
                 return;
             }
 
+        }
+
+        private void btnAC_Click(object sender, RoutedEventArgs e)
+        {
+            tbCurrentCalc.Text = "";   
         }
     }
 }
