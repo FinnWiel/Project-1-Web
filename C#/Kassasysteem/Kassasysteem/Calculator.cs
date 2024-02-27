@@ -33,7 +33,7 @@ namespace Kassasysteem
         private Regex bracketsRegex = new Regex(@"\(([^()]*)\)");
 
         private Regex powerTo = new Regex(@"\^");
-        private Regex additionSubtraction = new Regex(@"[+-]");
+        private Regex additionSubtraction = new Regex(@"(?<=\d|\))[-+]");
         private Regex multiplicationDivision = new Regex(@"[*/]");
 
         public void Parse(string equation)
@@ -56,6 +56,17 @@ namespace Kassasysteem
 
             if (operatorLocation.Success)
             {
+
+                Operator = operatorLocation.Value;
+
+                if (Operator == "-" && (operatorLocation.Index == 0 || additionSubtraction.IsMatch(equation.Substring(0, operatorLocation.Index)) || multiplicationDivision.IsMatch(equation.Substring(0, operatorLocation.Index))))
+                {
+                    Operator = "u-"; // Unary negation
+                    RightNumber = new Operation();
+                    RightNumber.Parse(equation.Substring(operatorLocation.Index + 1));
+                    return;
+                }
+
                 Operator = operatorLocation.Value;
                 MessageBox.Show(equation); //Shows steps in tree
 
@@ -107,6 +118,8 @@ namespace Kassasysteem
                     return LeftNumber.Solve() / RightNumber.Solve();
                 case "^":
                     return Math.Pow(LeftNumber.Solve(), RightNumber.Solve());
+                case "u-": // Unary negation
+                    return -RightNumber.Solve();
                 default:
                     throw new Exception("Unknown operator");
             }
