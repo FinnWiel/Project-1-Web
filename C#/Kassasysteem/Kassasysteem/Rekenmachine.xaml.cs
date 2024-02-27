@@ -48,7 +48,9 @@ namespace Kassasysteem
                     {
                         MessageBox.Show("There is no previous awnser yet.");
                     }
-
+                    break;
+                case "π":
+                    tbCurrentCalc.Text += "3,14";
                     break;
                 default:
                     tbCurrentCalc.Text += clickedButton.Content.ToString();

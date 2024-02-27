@@ -32,9 +32,9 @@ namespace Kassasysteem
 
         private Regex bracketsRegex = new Regex(@"\(([^()]*)\)");
 
-        private Regex powerTo = new Regex("[`^`]", RegexOptions.RightToLeft);
-        private Regex additionSubtraction = new Regex("[+-]", RegexOptions.RightToLeft);
-        private Regex multiplicationDivision = new Regex("[*/]", RegexOptions.RightToLeft);
+        private Regex powerTo = new Regex(@"\^");
+        private Regex additionSubtraction = new Regex(@"[+-]");
+        private Regex multiplicationDivision = new Regex(@"[*/]");
 
         public void Parse(string equation)
         {
@@ -83,7 +83,6 @@ namespace Kassasysteem
         {
             return bracketsRegex.Replace(equation, match =>
             {
-                // Parse the expression within brackets recursively
                 Operation bracketOperation = new Operation();
                 bracketOperation.Parse(match.Groups[1].Value);
                 return bracketOperation.Solve().ToString();
@@ -97,27 +96,20 @@ namespace Kassasysteem
             switch (Operator)
             {
                 case "v":
-                    break;
+                    return result;
                 case "+":
-                    result = LeftNumber.Solve() + RightNumber.Solve();
-                    break;
+                    return LeftNumber.Solve() + RightNumber.Solve();
                 case "-":
-                    result = LeftNumber.Solve() - RightNumber.Solve();
-                    break;
+                    return LeftNumber.Solve() - RightNumber.Solve();
                 case "*":
-                    result = LeftNumber.Solve() * RightNumber.Solve();
-                    break;
+                    return LeftNumber.Solve() * RightNumber.Solve();
                 case "/":
-                    result = LeftNumber.Solve() / RightNumber.Solve();
-                    break;
+                    return LeftNumber.Solve() / RightNumber.Solve();
                 case "^":
-                    result = Math.Pow(LeftNumber.Solve(), RightNumber.Solve());
-                    break;
+                    return Math.Pow(LeftNumber.Solve(), RightNumber.Solve());
                 default:
-                    throw new Exception("Parse first.");
+                    throw new Exception("Unknown operator");
             }
-
-            return result;
         }
     }
 }
