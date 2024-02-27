@@ -29,7 +29,6 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -38,37 +37,32 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Name="btnAns" Grid.Row="0" Grid.RowSpan="5" Margin="5">Ans</Button>
-
-            <Button Name="btnSin" Grid.Row="0" Grid.Column="1" Margin="5" Click="Button_Click_Number">sin</Button>
-            <Button Name="btnCos" Grid.Row="1" Grid.Column="1" Margin="5" Click="Button_Click_Number">cos</Button>
-            <Button Name="btnTan" Grid.Row="2" Grid.Column="1" Margin="5" Click="Button_Click_Number">tan</Button>
-            <Button Name="btnRoot" Grid.Row="3" Grid.Column="1" Margin="5" Click="Button_Click_Number">√x</Button>
-            <Button Name="btnPower" Grid.Row="4" Grid.Column="1" Margin="5" Click="Button_Click_Number">^</Button>
+            <Button Name="btnAns" Grid.Row="1" Grid.RowSpan="2"  Margin="5">AC</Button>
+            <Button Name="btnPower" Grid.Row="4" Grid.Column="2" Margin="5" Click="Button_Click_Number">^</Button>
 
             <Button Name="btnLeftBracket" Grid.Row="0" Grid.Column="2" Margin="5" Click="Button_Click_Number">(</Button>
-            <Button Name="btn1" Grid.Row="1" Grid.Column="2" Margin="5" Click="Button_Click_Number">1</Button>
-            <Button Name="btn4" Grid.Row="2" Grid.Column="2" Margin="5" Click="Button_Click_Number">4</Button>
-            <Button Name="btn7" Grid.Row="3" Grid.Column="2" Margin="5" Click="Button_Click_Number">7</Button>
-            <Button Name="btn0" Grid.Row="4" Grid.Column="2" Margin="5" Click="Button_Click_Number">0</Button>
+            <Button Name="btn1" Grid.Row="1" Grid.Column="1" Margin="5" Click="Button_Click_Number">1</Button>
+            <Button Name="btn4" Grid.Row="2" Grid.Column="1" Margin="5" Click="Button_Click_Number">4</Button>
+            <Button Name="btn7" Grid.Row="3" Grid.Column="1" Margin="5" Click="Button_Click_Number">7</Button>
+            <Button Name="btn0" Grid.Row="0" Grid.Column="1" Margin="5" Click="Button_Click_Number">0</Button>
 
             <Button Name="btnRightBracket" Grid.Row="0" Grid.Column="3" Margin="5" Click="Button_Click_Number">)</Button>
-            <Button Name="btn2" Grid.Row="1" Grid.Column="3" Margin="5" Click="Button_Click_Number">2</Button>
-            <Button Name="btn5" Grid.Row="2" Grid.Column="3" Margin="5" Click="Button_Click_Number">5</Button>
-            <Button Name="btn8" Grid.Row="3" Grid.Column="3" Margin="5" Click="Button_Click_Number">8</Button>
-            <Button Name="btnDot" Grid.Row="4" Grid.Column="3" Margin="5" Click="Button_Click_Number">.</Button>
+            <Button Name="btn2" Grid.Row="1" Grid.Column="2" Margin="5" Click="Button_Click_Number">2</Button>
+            <Button Name="btn5" Grid.Row="2" Grid.Column="2" Margin="5" Click="Button_Click_Number">5</Button>
+            <Button Name="btn8" Grid.Row="3" Grid.Column="2" Margin="5" Click="Button_Click_Number">8</Button>
+            <Button Name="btnDot" Grid.Row="4" Grid.Column="1" Margin="5" Click="Button_Click_Number">.</Button>
 
-            <Button Name="btnPi" Grid.Row="0" Grid.Column="4" Margin="5,5,5,5" Content="π" Click="Button_Click_Number"/>
-            <Button Name="btn3" Grid.Row="1" Grid.Column="4" Margin="5" Click="Button_Click_Number">3</Button>
-            <Button Name="btn6" Grid.Row="2" Grid.Column="4" Margin="5" Click="Button_Click_Number">6</Button>
-            <Button Name="btn9" Grid.Row="3" Grid.Column="4" Margin="5" Click="Button_Click_Number">9</Button>
-            <Button Name="btnEquals" Grid.Row="4" Grid.Column="4" Margin="5" Click="Calculate">=</Button>
+            <Button Name="btnPi" Grid.Row="5" Grid.Column="1" Margin="5,5,5,5" Content="π" Click="Button_Click_Number"/>
+            <Button Name="btn3" Grid.Row="1" Grid.Column="3" Margin="5" Click="Button_Click_Number">3</Button>
+            <Button Name="btn6" Grid.Row="2" Grid.Column="3" Margin="5" Click="Button_Click_Number">6</Button>
+            <Button Name="btn9" Grid.Row="3" Grid.Column="3" Margin="5" Click="Button_Click_Number">9</Button>
+            <Button Name="btnEquals" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Margin="5" Click="Calculate">=</Button>
 
-            <Button Name="btnCE" Grid.Row="0" Grid.Column="5" Margin="5" Click="btnCE_Click">CE</Button>
-            <Button Name="btnDevide" Grid.Row="1" Grid.Column="5" Margin="5" Click="Button_Click_Number">/</Button>
-            <Button Name="btnTimes" Grid.Row="2" Grid.Column="5" Margin="5" Click="Button_Click_Number">*</Button>
-            <Button Name="btnMinus" Grid.Row="3" Grid.Column="5" Margin="5" Click="Button_Click_Number">-</Button>
-            <Button Name="btnAddition" Grid.Row="4" Grid.Column="5" Margin="5" Click="Button_Click_Number">+</Button>
+            <Button Name="btnCE" Grid.Row="0" Grid.Column="0" Margin="5" Click="btnCE_Click">CE</Button>
+            <Button Name="btnDevide" Grid.Row="1" Grid.Column="4" Margin="5" Click="Button_Click_Number">/</Button>
+            <Button Name="btnTimes" Grid.Row="2" Grid.Column="4" Margin="5" Click="Button_Click_Number">*</Button>
+            <Button Name="btnMinus" Grid.Row="3" Grid.Column="4" Margin="5" Click="Button_Click_Number">-</Button>
+            <Button Name="btnAddition" Grid.Row="0" Grid.Column="4" Margin="5" Click="Button_Click_Number">+</Button>
 
         </Grid>
         

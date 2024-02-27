@@ -34,15 +34,6 @@ namespace Kassasysteem
 
             switch (clickedButton.Content.ToString())
             {
-                case "sin":
-                    tbCurrentCalc.Text += clickedButton.Content.ToString() + "(";
-                    break;
-                case "cos":
-                    tbCurrentCalc.Text += clickedButton.Content.ToString() + "(";
-                    break;
-                case "tan":
-                    tbCurrentCalc.Text += clickedButton.Content.ToString() + "(";
-                    break;
                 case "√x":
                     tbCurrentCalc.Text += "√";
                     break;
@@ -54,6 +45,10 @@ namespace Kassasysteem
 
         private void Calculate(object sender, RoutedEventArgs e)
         {
+            Calculator calculator = new Calculator();
+            calculator.Solve(tbCurrentCalc.Text);
+            tbPreviousCalc.Text = tbCurrentCalc.Text + "=";
+            tbCurrentCalc.Text = calculator.Solve(tbCurrentCalc.Text).ToString();
         }
 
         private void btnCE_Click(object sender, RoutedEventArgs e)
