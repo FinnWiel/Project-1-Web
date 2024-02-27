@@ -18,7 +18,7 @@
     font-size: 20px;
     margin: 20px;
     background-color: rgb(255, 255, 255);
-    border-bottom: black 2px solid;
+  
     display: flex;
 }
 .CheckoutHolder ul{
@@ -28,6 +28,8 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    margin-bottom: 10px;
+    border: none;
 }
 .Products {
     font-size: 20px;
@@ -51,6 +53,7 @@
     list-style: none;
     margin-bottom: 10px;
     justify-items: center;
+    column-gap: 10px;
 
 }
 
@@ -62,18 +65,21 @@
     border-radius: 7px;
     cursor: pointer;
 }
-
 .Delete {
     color: red;
     text-decoration: underline red;
     cursor: pointer;
+}
+#total{
+   display: flex;
+   float: right;
 }
 
 .Products li:nth-last-child(-n+4) {
     align-self: center;
 }
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 688px) {
 
     .Products {
         font-size: 10px;
@@ -81,6 +87,12 @@
         background-color: rgb(255, 255, 255);
         border-bottom: black 2px solid;
         display: flex;
+        flex-direction: column;
+    }
+    .Products ul li{
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
     }
 
     #TotalHolder
@@ -98,7 +110,6 @@
 }
 .plus{
     border: none;
-    background-color: white;
 }
 #Checkout{
     background-color: #25B94E;

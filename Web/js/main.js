@@ -52,23 +52,69 @@ function domloaded(){
     draw();
 }
 
-// Wait for the DOM content to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Get all elements with the class "Delete"
+
+  // Select all delete buttons
   var deleteButtons = document.querySelectorAll('.Delete');
+
+  // Function to check if there are any products left
+  function checkProducts() {
+      var productHolder = document.getElementById('Product-holder');
+      var products = productHolder.querySelectorAll('.Products');
+
+      // If there are no products left, remove the CheckoutHolder and display text
+      if (products.length === 0) {
+          var checkoutHolder = document.querySelector('.CheckoutHolder');
+          if (checkoutHolder) {
+              checkoutHolder.remove();
+          }
+
+          // Create a text element
+          var Leeg = document.createElement('p');
+          Leeg.textContent = "U heeft geen producten in uw winkelwagen";
+          Leeg.style.textAlign = "center";
+
+          // Append the text element to the main page
+          var mainPage = document.querySelector('.main-page');
+          mainPage.appendChild(Leeg);
+      }
+  }
 
   // Loop through each delete button
   deleteButtons.forEach(function(button) {
-      // Add click event listener to each delete button
       button.addEventListener('click', function(event) {
           // Get the parent element of the clicked delete button (which is the container div)
           var productContainer = event.target.closest('.Products');
-
-          // Check if the parent container exists
           if (productContainer) {
-              // Remove the parent container from the DOM
               productContainer.remove();
+              checkProducts();
           }
       });
   });
+
+  // Select all plus, minus, and number elements
+  var plusButtons = document.querySelectorAll(".plus");
+  var minusButtons = document.querySelectorAll(".minus");
+  var numberDisplays = document.querySelectorAll(".number");
+
+  // Loop through each plus button
+  plusButtons.forEach(function(plusButton, index) {
+      plusButton.addEventListener("click", function() {
+          var currentValue = parseInt(numberDisplays[index].textContent);
+          numberDisplays[index].textContent = currentValue + 1;
+      });
+  });
+
+  // Loop through each minus button
+  minusButtons.forEach(function(minusButton, index) {
+      minusButton.addEventListener("click", function() {
+          var currentValue = parseInt(numberDisplays[index].textContent);
+          if (currentValue > 1) {
+              numberDisplays[index].textContent = currentValue - 1;
+          }
+      });
+  });
+
+  checkProducts();
 });
+
