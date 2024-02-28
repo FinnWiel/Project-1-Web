@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,6 +32,7 @@ namespace Kassasysteem
         }
 
         public double totalPrice;
+        Dictionary<string, TextBlock> dynamicallyAddedTextBlocks = new Dictionary<string, TextBlock>();
         private void btnToevoegen_Click(object sender, RoutedEventArgs e)
         {       
             if (cmbFiets.SelectedIndex > -1 && !string.IsNullOrEmpty(txbAantalDagen.Text))
@@ -135,14 +137,18 @@ namespace Kassasysteem
                 dockPanel.Children.Add(footerTextBlock);
 
                 // Add Price
+                string uniqueName = "priceName_" + Guid.NewGuid().ToString("N");
+
                 TextBlock priceTextBlock = new TextBlock();
                 priceTextBlock.Text = PriceString; // Set your price here
                 priceTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
                 priceTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
                 priceTextBlock.Margin = new Thickness(10);
-                priceTextBlock.Name = "priceName";
+                priceTextBlock.Name = uniqueName;
                 DockPanel.SetDock(priceTextBlock, Dock.Bottom);
                 dockPanel.Children.Add(priceTextBlock);
+
+                dynamicallyAddedTextBlocks.Add(uniqueName, priceTextBlock);
 
                 // Create horizontal StackPanel for delete button
                 StackPanel deleteButtonStackPanel = new StackPanel();
@@ -187,6 +193,20 @@ namespace Kassasysteem
 
                 // Set the parent StackPanel as the content of the main window
                 orderList.Children.Add(parentStackPanel);
+
+                TextBlock priceTextBlock1 = dockPanel.FindName("priceName") as TextBlock;
+                if (priceTextBlock1 != null)
+                {
+                    // Found the priceTextBlock, you can now access its properties or manipulate it
+                    string price = priceTextBlock1.Text;
+                    Console.WriteLine("Found priceTextBlock using FindName(). Price: " + price);
+                }
+                else
+                {
+                    // priceTextBlock not found
+                    Console.WriteLine("Unable to find priceTextBlock using FindName().");
+                }
+
                 UpdateTotalPrice();
             }
         }
@@ -244,29 +264,39 @@ namespace Kassasysteem
 
             return combinedTagValues;
         }
-        public void UpdateTotalPrice()
+        // Function to update the total price
+        // Function to update the total price
+        void UpdateTotalPrice()
         {
-            double total = 0.0;
+            // Reset total price to 0
+            double totalPrice = 0.0;
 
-            foreach (var child in orderList.Children)
+            // Define a culture for parsing Euro currency
+            CultureInfo euroCulture = CultureInfo.CreateSpecificCulture("nl-NL");
+
+            // Iterate through each TextBlock in the dictionary
+            foreach (var kvp in dynamicallyAddedTextBlocks)
             {
-                if (child is DockPanel dockPanel)
+                TextBlock priceTextBlock = kvp.Value;
+
+                // Parse the price string and add it to totalPrice
+                double price;
+                string priceString = priceTextBlock.Text.Replace("€", "").Replace(".",",").Trim(); // Remove Euro symbol and extra spaces
+                if (double.TryParse(priceString, NumberStyles.Currency, euroCulture, out price))
                 {
-                    foreach (var dockPanelChild in dockPanel.Children)
-                    {
-                        if (dockPanelChild is TextBlock textBlock && textBlock.Name == "priceName")
-                        {
-                            if (double.TryParse(textBlock.Text.Substring(1), NumberStyles.Currency, CultureInfo.InvariantCulture, out double price))
-                            {
-                                total += price;
-                            }
-                        }
-                    }
+                    totalPrice += price;
+                }
+                else
+                {
+                    // Handle parsing error
+                    Console.WriteLine($"Parsing failed for price: {priceString}");
                 }
             }
 
-            tbTotal.Text = total.ToString("N2", CultureInfo.CurrentCulture);
+            // Update the UI with the new total price
+            tbTotal.Text = totalPrice.ToString("C", euroCulture); // Format as currency
         }
+
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
         {
@@ -276,12 +306,23 @@ namespace Kassasysteem
             // If parent DockPanel is found, remove it from the StackPanel
             if (parentDockPanel != null)
             {
+                // Find the price TextBlock by its name within the parent DockPanel
+                TextBlock priceTextBlock = parentDockPanel.Children.OfType<TextBlock>()
+                    .FirstOrDefault(tb => tb.Name != null && tb.Name.StartsWith("priceName_"));
+
+                // If price TextBlock is found, remove it from the dynamicallyAddedTextBlocks dictionary
+                if (priceTextBlock != null && !string.IsNullOrEmpty(priceTextBlock.Name))
+                {
+                    dynamicallyAddedTextBlocks.Remove(priceTextBlock.Name);
+                }
+
                 StackPanel parentStackPanel = parentDockPanel.Parent as StackPanel;
                 if (parentStackPanel != null)
                 {
                     parentStackPanel.Children.Remove(parentDockPanel);
                 }
             }
+
             UpdateTotalPrice();
         }
 
