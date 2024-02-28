@@ -9,28 +9,34 @@
 #Product-holder {
     padding: 20px;
     padding-bottom: 30px;
-    width: 95%;
     height: 85%;
     background-color: #ffffff;
 }
+
 /* checkout */
-.CheckoutHolder{
+.CheckoutHolder {
     font-size: 20px;
     margin: 20px;
     background-color: rgb(255, 255, 255);
-  
+
     display: flex;
 }
-.CheckoutHolder ul{
+
+.CheckoutHolder ul {
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin-bottom: 10px;
     border: none;
 }
+
+.CheckoutHolder li {
+    margin: 10px;
+}
+
 .Products {
     font-size: 20px;
     margin: 20px;
@@ -38,6 +44,7 @@
     border-bottom: black 2px solid;
     display: flex;
 }
+
 /******************/
 .Products ul {
     padding: 0;
@@ -65,14 +72,16 @@
     border-radius: 7px;
     cursor: pointer;
 }
+
 .Delete {
     color: red;
     text-decoration: underline red;
     cursor: pointer;
 }
-#total{
-   display: flex;
-   float: right;
+
+#total {
+    display: flex;
+    float: right;
 }
 
 .Products li:nth-last-child(-n+4) {
@@ -82,21 +91,21 @@
 @media only screen and (max-width: 688px) {
 
     .Products {
-        font-size: 10px;
+        font-size: 15px;
         margin: 20px;
         background-color: rgb(255, 255, 255);
         border-bottom: black 2px solid;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
-    .Products ul li{
+
+    .Products ul li {
         display: flex;
         flex-direction: row;
         column-gap: 10px;
     }
 
-    #TotalHolder
-    {
+    #TotalHolder {
         font-size: 20px;
         margin: 20px;
         background-color: rgb(255, 255, 255);
@@ -104,14 +113,29 @@
         display: flex;
     }
 }
-.min{
+
+@media only screen and (max-width: 550px) {
+    .Products {
+        font-size: 10px;
+        margin: 20px;
+        background-color: rgb(255, 255, 255);
+        border-bottom: black 2px solid;
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+
+.min {
     background-color: white;
     border: none;
 }
-.plus{
+
+.plus {
     border: none;
 }
-#Checkout{
+
+#Checkout {
     background-color: #25B94E;
     color: #ffffff;
     text-align: center;
@@ -123,10 +147,9 @@
     width: min-content;
     text-decoration: none;
 }
-#Betaal:hover{
-    
 
-}
-#total{
-   list-style-type: none;
+#Betaal:hover {}
+
+#total {
+    list-style-type: none;
 }
