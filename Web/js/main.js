@@ -1,24 +1,24 @@
 window.addEventListener("load", (event) => {
-  //Gets the current year for footer
-  let copyright = document.getElementById("year");
-  let currentYear = new Date().getFullYear();
-  copyright.innerHTML = currentYear;
+    //Gets the current year for footer
+    let copyright = document.getElementById("year");
+    let currentYear = new Date().getFullYear();
+    copyright.innerHTML = currentYear;
 });
 
 //Toggles mobile nav menu
 function toggleMobileNav() {
-  let menu = document.getElementById("navigation");
-  let bars = document.querySelectorAll(".bar");
+    let menu = document.getElementById("navigation");
+    let bars = document.querySelectorAll(".bar");
 
-  menu.classList.toggle("navFlex");
-  console.log("toggle");
+    menu.classList.toggle("navFlex");
+    console.log("toggle");
 
-  bars.forEach((bar) => bar.classList.toggle("x"));
+    bars.forEach((bar) => bar.classList.toggle("x"));
 }
 
 //Bike on footer
-document.addEventListener('DOMContentLoaded',domloaded,false);
-function domloaded(){
+document.addEventListener('DOMContentLoaded', domloaded, false);
+function domloaded() {
 
     //Create canvas
     var can = document.getElementById('canvas');
@@ -33,42 +33,134 @@ function domloaded(){
         can.width = window.innerWidth
         ctx.fillStyle = "#56BDE9";
         ctx.fillRect(0, 0, can.width, can.height);
-      
+
         //Draw bike
         ctx.beginPath();
         ctx.font = '30px FontAwesome';
         ctx.fillStyle = 'white';
         ctx.fillText('\uf206', x, y); //'\uf206' is unicode for the bike 
         ctx.fill();
-      
+
         //Move bike
         x += speed;
-        
-        if(x >= can.width + 100){
-          x = -50;
+
+        if (x >= can.width + 100) {
+            x = -50;
         }
         requestAnimationFrame(draw);
-      } 
+    }
     draw();
 }
 
-// Wait for the DOM content to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Get all elements with the class "Delete"
-  var deleteButtons = document.querySelectorAll('.Delete');
+//************* CART PAGE JS ***************************///*
+document.addEventListener('DOMContentLoaded', function () {
 
-  // Loop through each delete button
-  deleteButtons.forEach(function(button) {
-      // Add click event listener to each delete button
-      button.addEventListener('click', function(event) {
-          // Get the parent element of the clicked delete button (which is the container div)
-          var productContainer = event.target.closest('.Products');
+    // Select all delete buttons
+    var deleteButtons = document.querySelectorAll('.Delete');
 
-          // Check if the parent container exists
-          if (productContainer) {
-              // Remove the parent container from the DOM
-              productContainer.remove();
-          }
-      });
-  });
+    // Function to check if there are any products left
+    function checkProducts() {
+        var productHolder = document.getElementById('Product-holder');
+        var products = productHolder.querySelectorAll('.Products');
+
+        // If there are no products left, remove the CheckoutHolder and display text
+        if (products.length === 0) {
+            var checkoutHolder = document.querySelector('.CheckoutHolder');
+            if (checkoutHolder) {
+                checkoutHolder.remove();
+            }
+
+            // Create a text element
+            var Leeg = document.createElement('p');
+            Leeg.textContent = "U heeft geen producten in uw winkelwagen";
+            Leeg.style.textAlign = "center";
+
+            // Append the text element to the main page
+            var mainPage = document.querySelector('.main-page');
+            mainPage.appendChild(Leeg);
+        }
+    }
+
+    // Loop through each delete button
+    deleteButtons.forEach(function (button) {
+        button.addEventListener('click', function (event) {
+            // Get the parent element of the clicked delete button (which is the container div)
+            var productContainer = event.target.closest('.Products');
+            if (productContainer) {
+                productContainer.remove();
+                checkProducts();
+            }
+        });
+    });
+
+    // Select all plus, minus, and number elements
+    var plusButtons = document.querySelectorAll(".plus");
+    var plusButtons2 = document.querySelectorAll(".plus2");
+
+
+    var minusButtons = document.querySelectorAll(".minus");
+    var minusButtons2 = document.querySelectorAll(".minus2");
+
+    var numberDisplays = document.querySelectorAll(".number");
+    var numberDisplays2 = document.querySelectorAll(".number2");
+
+    var priceDisplays = document.querySelectorAll(".Price");
+    var priceDisplays2 = document.querySelectorAll(".Price2");
+
+
+    // Loop through each plus button
+    plusButtons.forEach(function (plusButtons, index) {
+        plusButtons.addEventListener("click", function () {
+
+            var currentValue = parseInt(numberDisplays[index].textContent);
+            var currentPriceValue = parseInt(priceDisplays[index].textContent);
+
+            numberDisplays[index].textContent = currentValue + 1;
+            priceDisplays[index].textContent = currentPriceValues = currentPriceValue + 150.00;
+        });
+    });
+
+    plusButtons2.forEach(function (plusButtons2, index) {
+        plusButtons2.addEventListener("click", function () {
+
+            var currentValue = parseInt(numberDisplays2[index].textContent);
+            var currentPriceValue = parseInt(priceDisplays2[index].textContent);
+
+            numberDisplays2[index].textContent = currentValue + 1;
+            priceDisplays2[index].textContent = currentPriceValues = currentPriceValue + 900.00;
+        });
+    });
+
+
+    // Loop through each minus button
+    minusButtons.forEach(function (minusButtons, index) {
+        minusButtons.addEventListener("click", function () {
+
+            var currentValue = parseInt(numberDisplays[index].textContent);
+            var currentPriceValue = parseInt(priceDisplays[index].textContent);
+
+            if (currentValue > 1) {
+                numberDisplays[index].textContent = currentValue - 1;
+                priceDisplays[index].textContent = currentPriceValue = currentPriceValue - 150.00;
+            }
+        });
+    });
+
+
+
+    minusButtons2.forEach(function (minusButtons2, index) {
+        minusButtons2.addEventListener("click", function () {
+
+            var currentValue = parseInt(numberDisplays2[index].textContent);
+            var currentPriceValue = parseInt(priceDisplays2[index].textContent);
+
+            if (currentValue > 1) {
+                numberDisplays2[index].textContent = currentValue - 1;
+                priceDisplays2[index].textContent = currentPriceValue = currentPriceValue - 900.00;
+            }
+        });
+    });
+
+    checkProducts();
 });
+
