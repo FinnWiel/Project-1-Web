@@ -31,20 +31,26 @@ namespace Kassasysteem
         private void Button_Click_Number(object sender, RoutedEventArgs e)
         {
             Button clickedButton = (Button)sender;
+            Calculator calculator = new Calculator();
 
             switch (clickedButton.Content.ToString())
             {
-                case "sin":
-                    tbCurrentCalc.Text += clickedButton.Content.ToString() + "(";
-                    break;
-                case "cos":
-                    tbCurrentCalc.Text += clickedButton.Content.ToString() + "(";
-                    break;
-                case "tan":
-                    tbCurrentCalc.Text += clickedButton.Content.ToString() + "(";
-                    break;
                 case "√x":
                     tbCurrentCalc.Text += "√";
+                    break;
+                case "Ans":
+                    if(tbPreviousCalc.Text != "=")
+                    {
+                        string previousAwnser = tbPreviousCalc.Text.Remove(tbPreviousCalc.Text.Length - 1, 1); ;
+                        tbCurrentCalc.Text += calculator.Solve(previousAwnser).ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("There is no previous awnser yet.");
+                    }
+                    break;
+                case "π":
+                    tbCurrentCalc.Text += "3,14";
                     break;
                 default:
                     tbCurrentCalc.Text += clickedButton.Content.ToString();
@@ -54,6 +60,9 @@ namespace Kassasysteem
 
         private void Calculate(object sender, RoutedEventArgs e)
         {
+            Calculator calculator = new Calculator();
+            tbPreviousCalc.Text = tbCurrentCalc.Text + "=";
+            tbCurrentCalc.Text = calculator.Solve(tbCurrentCalc.Text).ToString();
         }
 
         private void btnCE_Click(object sender, RoutedEventArgs e)
@@ -70,6 +79,11 @@ namespace Kassasysteem
                 return;
             }
 
+        }
+
+        private void btnAC_Click(object sender, RoutedEventArgs e)
+        {
+            tbCurrentCalc.Text = "";   
         }
     }
 }
