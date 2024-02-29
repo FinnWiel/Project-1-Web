@@ -52,6 +52,54 @@ function domloaded() {
     draw();
 }
 
+//Dynamic open/closed message on homepage
+function OpenClose() {
+    var spanText = document.getElementById("openspan");
+    var today = new Date();
+    var weekDay = today.getDay();
+    var curHour = today.getHours();
+    var curMinute = today.getMinutes();
+
+    if (weekDay === 0) { // Day 0 = sunday
+        spanText.innerHTML = "Gesloten";
+    }
+    else if (weekDay === 1) {
+        if ((curHour > 12 || (curHour === 12 && curMinute >= 30)) && curHour < 18) {
+            spanText.innerHTML = "Open";
+        } else {
+            spanText.innerHTML = "Gesloten";
+        }
+    }
+    else if (weekDay >= 2 && weekDay <= 4) {
+        if ((curHour > 8 || (curHour === 8 && curMinute >= 30)) && curHour < 18) {
+            spanText.innerHTML = "Open";
+        } else {
+            spanText.innerHTML = "Gesloten";
+        }
+    }
+    else if (weekDay === 5) {
+        if ((curHour > 8 || (curHour === 8 && curMinute >= 30)) && (curHour < 19 || (curHour === 19 && curMinute < 30))) {
+            spanText.innerHTML = "Open";
+        } else {
+            spanText.innerHTML = "Gesloten";
+        }
+    }
+    else if (weekDay === 6) {
+        if (curHour >= 9 && curHour < 17) {
+            spanText.innerHTML = "Open";
+        } else {
+            spanText.innerHTML = "Gesloten";
+        }
+    }
+}
+// Run OpenClose when page loads
+window.onload = function () {
+    OpenClose();
+
+    // Run OpenClose every 30s to update status
+    setInterval(OpenClose, 30000);
+};
+
 //************* CART PAGE JS ***************************///*
 document.addEventListener('DOMContentLoaded', function () {
 
