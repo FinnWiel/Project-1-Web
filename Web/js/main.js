@@ -54,7 +54,6 @@ function domloaded() {
     draw();
 }
 
-
 //************* CART PAGE JS ***************************///*
 document.addEventListener('DOMContentLoaded', function () {
 
