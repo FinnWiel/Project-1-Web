@@ -16,6 +16,32 @@ function toggleMobileNav() {
     bars.forEach((bar) => bar.classList.toggle("x"));
 }
 
+function huurFietsen(){
+    let checkbox = document.querySelectorAll(".cb");
+    let oneChecked = false;
+    for( let i = 0; i < checkbox.length; i++ ) {
+        if (checkbox[i].checked == true) {
+            oneChecked = true
+        }
+    }
+
+
+    if(oneChecked){
+        for( let i = 0; i < checkbox.length; i++ ) {
+            if (checkbox[i].checked == true) {
+                let row = checkbox[i].parentElement.parentElement;
+                let soortfiets = row.children[0];
+                let prijs = row.children[1];
+                alert(`${soortfiets.innerHTML} voor ${prijs.innerHTML}`);
+                console.log(row)
+            }
+        }
+    }else{
+        alert("Er zijn geen fietsen geselecteerd.");
+    }
+    oneChecked = false;
+}
+
 //Bike on footer
 document.addEventListener('DOMContentLoaded', domloaded, false);
 function domloaded() {
