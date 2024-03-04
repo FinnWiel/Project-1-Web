@@ -18,6 +18,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xaml;
+using System.Windows.Threading;
+using System.Windows.Media.Animation;
 
 namespace Kassasysteem
 {
@@ -26,15 +28,32 @@ namespace Kassasysteem
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer progressBar;
         public MainWindow()
         {
             InitializeComponent();
+            progressBar = new DispatcherTimer();
+            progressBar.Tick += new EventHandler(ProgressTick);
+            progressBar.Interval = TimeSpan.FromSeconds(1);
+            progressBar.Start();
+            
+        }
+
+        private void ProgressTick(object sender, EventArgs e)
+        {
+            ProgressTime.Value = ProgressTime.Value - 1.66666667; // 100/60 = 1.66666667
+ 
+            if (ProgressTime.Value == 0)
+            {
+                Application.Current.Shutdown();
+            }
         }
 
         public double totalPrice;
         Dictionary<string, TextBlock> dynamicallyAddedTextBlocks = new Dictionary<string, TextBlock>();
         private void btnToevoegen_Click(object sender, RoutedEventArgs e)
-        {       
+        {
+            ProgressTime.Value = 100;
             if (cmbFiets.SelectedIndex > -1 && !string.IsNullOrEmpty(txbAantalDagen.Text))
             {
                 string selectedFiets = cmbFiets.Text;
@@ -206,7 +225,7 @@ namespace Kassasysteem
                     // priceTextBlock not found
                     Console.WriteLine("Unable to find priceTextBlock using FindName().");
                 }
-
+               
                 UpdateTotalPrice();
             }
         }
@@ -220,7 +239,7 @@ namespace Kassasysteem
                 {
                     // Check if the CheckBox is checked
                     if (checkBox.IsChecked == true)
-                    {
+                    { 
                         // Retrieve the value or any other associated data
                         string value = checkBox.Content.ToString();
                         // Add the value to the list
@@ -322,7 +341,7 @@ namespace Kassasysteem
                     parentStackPanel.Children.Remove(parentDockPanel);
                 }
             }
-
+            ProgressTime.Value = 100;
             UpdateTotalPrice();
         }
 
@@ -350,6 +369,7 @@ namespace Kassasysteem
 
         private void btnNieuweKlant_Click(object sender, RoutedEventArgs e)
         {
+            ProgressTime.Value = 100;
             RemoveAllOrderItems();
             UpdateTotalPrice();
         }
@@ -359,6 +379,17 @@ namespace Kassasysteem
             Rekenmachine rekenmachine = new Rekenmachine();
             rekenmachine.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             rekenmachine.Show();
+            ProgressTime.Value = 100;
+        }
+
+        private void cmbFiets_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ProgressTime.Value = 100;
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            ProgressTime.Value = 100;
         }
 
         private void btnAfrekenen_Click(object sender, RoutedEventArgs e)
