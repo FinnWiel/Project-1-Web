@@ -360,5 +360,13 @@ namespace Kassasysteem
             rekenmachine.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             rekenmachine.Show();
         }
+
+        private void btnAfrekenen_Click(object sender, RoutedEventArgs e)
+        {
+            Betaal betaalWindow = new Betaal();
+
+            // Show the Betaal window
+            betaalWindow.Show();
+        }
     }
 }

@@ -55,10 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Betaal.xaml.cs">
+      <DependentUpon>Betaal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Calculator.cs" />
     <Compile Include="Rekenmachine.xaml.cs">
       <DependentUpon>Rekenmachine.xaml</DependentUpon>
     </Compile>
+    <Page Include="Betaal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +111,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\10 euro.png" />
+    <Resource Include="Assets\100 euro.jpg" />
+    <Resource Include="Assets\10eurocent.jpg" />
+    <Resource Include="Assets\1euro.jpg" />
+    <Resource Include="Assets\20 euro.jpg" />
+    <Resource Include="Assets\200 euro.jpg" />
+    <Resource Include="Assets\20eurocent.jpg" />
+    <Resource Include="Assets\2euro.jpeg" />
+    <Resource Include="Assets\5 euro.png" />
+    <Resource Include="Assets\50 euro.png" />
+    <Resource Include="Assets\50eurocent.jpg" />
+    <Resource Include="Assets\5eurocent.jpg" />
+    <Resource Include="Assets\Fluitende fietser.jpg" />
+    <Resource Include="Assets\getallen.jpg" />
+    <Resource Include="Assets\Money.png" />
+    <Resource Include="Assets\stoer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

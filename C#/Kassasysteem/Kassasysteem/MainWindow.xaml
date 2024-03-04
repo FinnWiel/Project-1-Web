@@ -115,7 +115,7 @@
                     </Button.Resources>
                 </Button>
 
-                <Button Name="btnAfrekenen" Cursor="Hand" Grid.Row="1" Margin="2" Background="white" BorderBrush="Transparent">
+                <Button Name="btnAfrekenen" Cursor="Hand" Grid.Row="1" Margin="2" Background="white" BorderBrush="Transparent" Click="btnAfrekenen_Click">
                     Afrekenen
                     <Button.Resources>
                         <Style TargetType="Border">
