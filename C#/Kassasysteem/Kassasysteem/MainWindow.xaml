@@ -27,7 +27,7 @@
             <StackPanel Margin="10,0">
                 <Label FontSize="10" Margin="-3">Fiets</Label>
                     <Grid Name="gridCmb">
-                        <ComboBox Name="cmbFiets" MinHeight="30">
+                        <ComboBox Name="cmbFiets" MinHeight="30" SelectionChanged="cmbFiets_SelectionChanged">
                             <ComboBoxItem Tag="20,00" >Aanhangfiets</ComboBoxItem>
                             <ComboBoxItem Tag="35,00">Bakfiets</ComboBoxItem>
                             <ComboBoxItem Tag="30,00">Driewielfiets</ComboBoxItem>
@@ -56,10 +56,10 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <CheckBox Tag="5,00">Beschadigingen</CheckBox>
-                        <CheckBox Tag="10,00" Grid.Row="1">Diefstal</CheckBox>
-                        <CheckBox Tag="5,00" Grid.Column="1">Rechtsbijstand</CheckBox>
-                        <CheckBox Tag="2,50" Grid.Row="1" Grid.Column="1">Ongevallen</CheckBox>
+                        <CheckBox Tag="5,00" Click="CheckBox_Checked">Beschadigingen</CheckBox>
+                        <CheckBox Tag="10,00" Grid.Row="1" Click="CheckBox_Checked">Diefstal</CheckBox>
+                        <CheckBox Tag="5,00" Grid.Column="1" Click="CheckBox_Checked">Rechtsbijstand</CheckBox>
+                        <CheckBox Tag="2,50" Grid.Row="1" Grid.Column="1" Click="CheckBox_Checked">Ongevallen</CheckBox>
                     </Grid>
 
                 </StackPanel>
@@ -75,10 +75,10 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <CheckBox Tag="15,00" >Ophaalsevice</CheckBox>
-                        <CheckBox Tag="10,00" Grid.Row="1">Regenpak</CheckBox>
-                        <CheckBox Tag="12,50" Grid.Column="1">Lunchpakket basis</CheckBox>
-                        <CheckBox Tag="20,00" Grid.Row="1" Grid.Column="1">Lunchpakket uitgebreid</CheckBox>
+                        <CheckBox Tag="15,00" Click="CheckBox_Checked">Ophaalservice</CheckBox>
+                        <CheckBox Tag="10,00" Grid.Row="1" Click="CheckBox_Checked">Regenpak</CheckBox>
+                        <CheckBox Tag="12,50" Grid.Column="1" Click="CheckBox_Checked">Lunchpakket basis</CheckBox>
+                        <CheckBox Tag="20,00" Grid.Row="1" Grid.Column="1" Click="CheckBox_Checked">Lunchpakket uitgebreid</CheckBox>
                     </Grid>
 
                 </StackPanel>
@@ -87,7 +87,7 @@
                 <Label FontSize="10" Margin="-3">Aantal dagen</Label>
                 <TextBox Name="txbAantalDagen" MinHeight="30"></TextBox>
             </StackPanel>
-                <Button BorderBrush="Transparent"  Cursor="Hand" Margin="10,260,10,70" Background="white" Click="Button_Click"> Rekanmachie
+                <Button BorderBrush="Transparent"  Cursor="Hand" Margin="10,260,10,70" Background="white" Click="Button_Click"> Rekenmachine
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -152,7 +152,7 @@
         </Grid>
 
         <Grid Grid.Row="2" Grid.ColumnSpan="2"  Background="#5B61F2">
-            <ProgressBar Margin="7" Value="25"/>
+            <ProgressBar Name="ProgressTime" Margin="7" Value="100"/>
         </Grid>
 
     </Grid>

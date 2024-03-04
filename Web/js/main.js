@@ -60,6 +60,7 @@ function OpenClose() {
     var curHour = today.getHours();
     var curMinute = today.getMinutes();
 
+
     if (weekDay === 0) { // Day 0 = sunday
         spanText.innerHTML = "Gesloten";
     }
