@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Kassasysteem"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000" MinHeight="600" MinWidth="950"
-        Style="{StaticResource WindowStyle}">
+        Style="{StaticResource WindowStyle}" Deactivated="Window_Deactivated" Activated="Window_Activated">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>

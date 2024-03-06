@@ -5,152 +5,121 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kassasysteem"
         mc:Ignorable="d"
-        MinHeight="450" MinWidth="800" MaxHeight="450" MaxWidth="800"
-        Title="Betaal" Height="450" Width="800"  Background="black">
+        Title="Betaal" Height="600" Width="1000" MinHeight="600" MinWidth="950" Activated="Window_Activated" Deactivated="Window_Deactivated">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.RowSpan="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Height="387" >
-            <TextBlock  Foreground="white" >Test</TextBlock>
-            <TextBlock  Foreground="white" >Test</TextBlock>
-            <TextBlock  Foreground="white" >Test</TextBlock>
-            <TextBlock  Foreground="white" >Test</TextBlock>
-            <TextBlock  Foreground="white" >Test</TextBlock>
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,200" Foreground="White" Background="DarkBlue">Volgende klant</Button>
-        </StackPanel>
-
-        <ProgressBar Name="progressBar" Width="800" Height="20" Minimum="0" Maximum="100" Value="0" Grid.ColumnSpan="3"  Grid.Row="4" Background="Green" />
-
-        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10px">
-            <ComboBox Width="200" SelectedIndex="0">
-                <ComboBoxItem IsEnabled="False">Fietsen</ComboBoxItem>
-                <ComboBoxItem Tag="20,00" >Aanhangfiets</ComboBoxItem>
-                <ComboBoxItem Tag="35,00">Bakfiets</ComboBoxItem>
-                <ComboBoxItem Tag="30,00">Driewielfiets</ComboBoxItem>
-                <ComboBoxItem Tag="30,00">Elektrische fiets</ComboBoxItem>
-                <ComboBoxItem Tag="15,00">Kinderfiets</ComboBoxItem>
-                <ComboBoxItem Tag="45,00">Ligfiets</ComboBoxItem>
-                <ComboBoxItem Tag="12,50">Oma fiets</ComboBoxItem>
-                <ComboBoxItem Tag="15,00">Racefiets</ComboBoxItem>
-                <ComboBoxItem Tag="15,00">Speed pedelac</ComboBoxItem>
-                <ComboBoxItem Tag="12,50">Stadsfiets</ComboBoxItem>
-                <ComboBoxItem Tag="10,00">Vouwfiets</ComboBoxItem>
-                <ComboBoxItem Tag="15,00">Zitfiets</ComboBoxItem>
-            </ComboBox>
-
-            <ComboBox Width="200" SelectedIndex="0">
-                <ComboBoxItem IsEnabled="False">Verzekeringen</ComboBoxItem>
-                <ComboBoxItem Content="Fietsen" />
-                <ComboBoxItem Content="Verzekeringen" />
-                <ComboBoxItem Content="Services" />
-            </ComboBox>
-
-            <ComboBox Width="200" SelectedIndex="0">
-                <ComboBoxItem IsEnabled="False">Services</ComboBoxItem>
-                <ComboBoxItem Content="Fietsen" />
-                <ComboBoxItem Content="Verzekeringen" />
-                <ComboBoxItem Content="Services" />
-            </ComboBox>
-            <TextBox  Width="200" Foreground="black" >Dagen:</TextBox>
-            <Button Width="100" Background="blue" Foreground="white" Content="Volgende artikel" />
-
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" >
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="white">producten:</TextBlock>
-            <TextBlock  Foreground="White">Aanhangfiets</TextBlock>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,70,0,0" Foreground="White" >Te betalen bedrag:</TextBlock>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="white">€200</TextBlock>
-        </StackPanel>
-
-
-
-
-
-
-        <Grid Grid.ColumnSpan="1" Grid.RowSpan="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
-            <Label Grid.Column="0" Grid.Row="0" Content="5 cent" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets\5eurocent.jpg" Grid.Row="0" Grid.Column="1" Margin="2,2,2,2" />
-            <Label Grid.Column="2" Grid.Row="0" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="1" Content="10 cent" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets\10eurocent.jpg" Grid.Row="1" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="1" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="2" Content="20 cent" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets\20eurocent.jpg" Grid.Row="2" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="2" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="3" Content="50 cent" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets/50eurocent.jpg" Grid.Row="3" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="3" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="4" Content="1 euro" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets/1euro.jpg" Grid.Row="4" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="4" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="5" Content="2 euro" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets/2euro.jpeg" Grid.Row="5" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="5" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="6" Content="5 euro" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets/5 euro.png" Grid.Row="6" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="6" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="7" Content="10 euro" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets/10 euro.png" Grid.Row="7" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="7" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="8" Content="20 euro" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets/20 euro.jpg" Grid.Row="8" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="8" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="9" Content="50 euro" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets/50 euro.png" Grid.Row="9" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="9" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="10" Content="100 euro" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets/100 euro.jpg" Grid.Row="10" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="10" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-            <Label Grid.Column="0" Grid.Row="11" Content="200 euro" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-            <Image Source="Assets/200 euro.jpg" Grid.Row="11" Grid.Column="1" Margin="2"/>
-            <Label Grid.Column="2" Grid.Row="11" Content="0 keer" FontSize="20" HorizontalAlignment="Center" Foreground="white" VerticalAlignment="Center"/>
-
-
-
-
+        <Grid Background="#56BDE9">
+            <Image Margin="10, 10, 10, 5" VerticalAlignment="Top">
+                <Image.Source>
+                    <BitmapImage UriSource="/Assets/Logo.png"></BitmapImage>
+                </Image.Source>
+            </Image>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="50px"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,80,5,0">
+                        <Image Source="assets/5eurocent.jpg"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/10eurocent.jpg"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/20eurocent.jpg"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/50eurocent.jpg"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/1euro.jpg"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/2euro.jpeg"></Image>
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Column="1">
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,80,5,0">
+                        <Image Source="assets/5 euro.png"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/10 euro.png"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/20 euro.jpg"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/50 euro.png"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/100 euro.jpg"></Image>
+                    </Border>
+                    <Border Height="60px" Background="#EAEAEA" Margin="5,10,5,0">
+                        <Image Source="assets/200 euro.jpg"></Image>
+                    </Border>
+                </StackPanel>
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="30px" Background="#525252" Foreground="White" Content="Reset">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
         </Grid>
 
+        <Grid Grid.Column="2" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="30px"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="175"></RowDefinition>
+                <RowDefinition Height="110"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Background="#EAEAEA" Grid.Column="0" Grid.Row="1" CornerRadius="23"></Border>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Margin="5,20,5,5" Grid.Column="0" Grid.Row="1" Text="Totale gegeven waarde:"></TextBlock>
+            <Separator VerticalAlignment="Top" Margin="10 55 10 0" Height="2" BorderThickness="2" BorderBrush="#000" Grid.Column="0" Grid.Row="1"></Separator>
+            <Border Height="60" Width="270" Background="White" Grid.Column="0" Grid.Row="1" Margin="0,70,0,0" CornerRadius="10">
+                <TextBlock FontSize="20" TextAlignment="Center" VerticalAlignment="Center">110 euro</TextBlock>
+            </Border>
 
+            <Border Background="#EAEAEA" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" CornerRadius="23"></Border>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Margin="5,20,5,5" Grid.Column="2" Grid.Row="1">Retourbedrag:</TextBlock>
+            <Separator VerticalAlignment="Top" Margin="10 55 10 0" Height="2" BorderThickness="2" BorderBrush="#000" Grid.Column="2" Grid.Row="1"></Separator>
+            <Border Height="60" Width="270" Background="White" Grid.Column="2" Grid.Row="1" Margin="0,70,0,0" CornerRadius="10">
+                <TextBlock FontSize="20" TextAlignment="Center" VerticalAlignment="Center">75 euro</TextBlock>
+            </Border>
+            <Border Height="100" Width="270" Background="White" Grid.Column="2" Grid.Row="2" Margin="0,-40,0,0" CornerRadius="10">
+                <TextBlock FontSize="18" TextAlignment="Center" VerticalAlignment="Center">1x 50 euro <LineBreak></LineBreak>1x 20 euro <LineBreak></LineBreak> 1x 5 euro</TextBlock>
+            </Border>
 
+            <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Height="100" Width="400" Background="#525252" Foreground="White" FontSize="18" BorderBrush="Transparent" Content="Opslaan &amp;	Afronden">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="2"  Background="#5B61F2">
+            <ProgressBar Name="ProgressTime" Margin="7" Value="100"/>
+        </Grid>
     </Grid>
 </Window>
