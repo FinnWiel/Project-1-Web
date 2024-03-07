@@ -35,7 +35,6 @@ namespace Kassasysteem
             progressBar = new DispatcherTimer();
             progressBar.Tick += new EventHandler(ProgressTick);
             progressBar.Interval = TimeSpan.FromSeconds(1);
-            progressBar.Start();
             
         }
 
@@ -398,6 +397,17 @@ namespace Kassasysteem
 
             // Show the Betaal window
             betaalWindow.Show();
+        }
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+            progressBar.Stop();
+            ProgressTime.Value = 100;
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            progressBar.Start();
         }
     }
 }
