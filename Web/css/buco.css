@@ -1,0 +1,91 @@
+.main-page{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1300px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.buco-title{
+    font-size: 60px;
+}
+
+.buco-text{
+    margin: 20px 5px;
+    font-size: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) repeat(3, 0);
+    grid-template-rows: repeat(2, 1fr) repeat(3, 0);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    width: 100%;
+    height: 1000px;
+}
+    
+.item-1 { grid-area: 1 / 1 / 2 / 2; background-image: url("../img/fietsenplan.jpg");}
+.item-2 { grid-area: 1 / 2 / 2 / 3; background-image: url("../img/fietsenbank.jpg");}
+.item-3 { grid-area: 2 / 1 / 3 / 3; border-radius: 10px;}
+
+.item-3{
+    background: #3286aa;
+}
+
+.item-1, .item-2 {
+    background-size: cover;
+    opacity: .5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.item-1:hover, .item-2:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.card-title{
+    opacity: 1;
+    color: white;
+    margin: 10px;
+    font-size: 70px;
+}
+
+.card-t{
+    color: white;
+    margin: 30px;
+    font-size: 50px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .buco-title{
+        font-size: 30px;
+        margin: 10px;
+    }
+    .buco-text{
+        font-size: 16px;
+        margin: 10px;
+    }
+    .grid {
+        display: grid;
+        margin: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr) repeat(2, 0);
+        grid-gap: 10px;
+    }
+        
+        .item-1 { grid-area: 1 / 1 / 2 / 2; }
+        .item-2 { grid-area: 2 / 1 / 3 / 2; }
+        .item-3 { grid-area: 3 / 1 / 4 / 2; }
+    
+        .card-t{
+            font-size: 30px;
+        }
+}
+

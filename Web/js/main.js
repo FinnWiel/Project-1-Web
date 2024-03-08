@@ -47,14 +47,13 @@ function huurFietsen() {
 //Bike on footer
 document.addEventListener('DOMContentLoaded', domloaded, false);
 function domloaded() {
-
     //Create canvas
     var can = document.getElementById('canvas');
     can.height = 40; can.width = window.innerWidth;
     var ctx = can.getContext('2d');
 
     var x = 0, y = can.height;
-    var speed = 1;
+    var speed = 6;
 
     function draw() {
         //Draw canvas
@@ -79,6 +78,8 @@ function domloaded() {
     }
     draw();
 }
+
+
 
 
 //Dynamic open/closed message on homepage
