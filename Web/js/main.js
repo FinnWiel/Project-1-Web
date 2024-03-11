@@ -1,5 +1,4 @@
 
-
 window.addEventListener("load", (event) => {
     //Gets the current year for footer
     let copyright = document.getElementById("year");

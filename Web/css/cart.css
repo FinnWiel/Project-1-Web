@@ -7,10 +7,12 @@
 }
 
 #Product-holder {
+    margin: 10px;
     padding: 20px;
     padding-bottom: 30px;
     height: 85%;
     background-color: #ffffff;
+    border: 1px solid black;
 }
 
 /* checkout */
@@ -42,7 +44,8 @@
     margin: 20px;
     background-color: rgb(255, 255, 255);
     border-bottom: black 2px solid;
-    display: flex;
+   
+    /*display: flex;*/
 }
 
 /******************/
@@ -91,7 +94,7 @@
 @media only screen and (max-width: 688px) {
 
     .Products {
-        font-size: 15px;
+        font-size: 13px;
         margin: 20px;
         background-color: rgb(255, 255, 255);
         border-bottom: black 2px solid;
@@ -102,7 +105,7 @@
     .Products ul li {
         display: flex;
         flex-direction: row;
-        column-gap: 10px;
+        column-gap: 15px;
     }
 
     #TotalHolder {
@@ -115,8 +118,18 @@
 }
 
 @media only screen and (max-width: 550px) {
-    .Products {
-        font-size: 10px;
+    #Product-holder {
+        padding: 20px;
+        padding-bottom: 30px;
+        height: 85%;
+        background-color: #ffffff;
+        border-bottom: solid 1px black;
+    }
+
+    .Products ul {
+        justify-content: center;
+        vertical-align: middle;
+        font-size: 20px;
         margin: 20px;
         background-color: rgb(255, 255, 255);
         border-bottom: black 2px solid;
