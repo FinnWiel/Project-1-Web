@@ -59,6 +59,7 @@
       <DependentUpon>Betaal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Calculator.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="Rekenmachine.xaml.cs">
       <DependentUpon>Rekenmachine.xaml</DependentUpon>
     </Compile>

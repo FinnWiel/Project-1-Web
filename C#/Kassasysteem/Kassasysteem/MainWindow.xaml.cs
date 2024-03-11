@@ -35,7 +35,6 @@ namespace Kassasysteem
             progressBar = new DispatcherTimer();
             progressBar.Tick += new EventHandler(ProgressTick);
             progressBar.Interval = TimeSpan.FromSeconds(1);
-            progressBar.Start();
             
         }
 
@@ -394,10 +393,24 @@ namespace Kassasysteem
 
         private void btnAfrekenen_Click(object sender, RoutedEventArgs e)
         {
-            Betaal betaalWindow = new Betaal();
+            double totalPrice = Convert.ToDouble(tbTotal.Text.Replace("€", "").Replace(",", ".").Trim());
+            Data.itemPrice = totalPrice;
+            Betaal betaalWindow = new Betaal(this);
 
             // Show the Betaal window
             betaalWindow.Show();
+        }
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+           
+            progressBar.Stop();
+            ProgressTime.Value = 100;
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            progressBar.Start();
         }
     }
 }
