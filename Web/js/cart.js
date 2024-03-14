@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
             var price = item.price;
             var replacedPrice = price.replace("$", "");
             var quantity = item.quantity || 1;
-            // Create a div element to hold each product
             var productDiv = document.createElement('div');
 
             // Create the HTML structure for each product item
@@ -69,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     var checkoutButton = document.getElementById('Checkout');
     checkoutButton.addEventListener('click', function () {
-        alert("Total: €" + totalPrice.toFixed(2));
+        alert("Totaal: €" + totalPrice.toFixed(2));
     });
 });
 document.addEventListener('DOMContentLoaded', function () {
