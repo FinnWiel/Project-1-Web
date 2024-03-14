@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             productHolder.appendChild(productDiv);
             totalPrice += parseFloat(replacedPrice) * quantity;
         });
-    } document.getElementById('total').innerText = "Total: €" + totalPrice.toFixed(2);
+    } document.getElementById('total').innerText = "Totaal: €" + totalPrice.toFixed(2);
 
     // Event listener for plus and minus buttons
     productHolder.addEventListener('click', function (event) {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
             quantityElement.innerText = quantity;
-            document.getElementById('total').innerText = "Total: €" + totalPrice.toFixed(2);
+            document.getElementById('total').innerText = "Totaal: €" + totalPrice.toFixed(2);
 
             // Update the quantity in the cartData and localStorage
             var productName = productContainer.querySelector('.Bike-name').innerText;
@@ -85,15 +85,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (checkoutHolder) {
                 checkoutHolder.remove();
             }
-
+            var mainPage = document.querySelector('.main-page');
             var Leeg = document.createElement('p');
-            Leeg.textContent = "U heeft geen producten in uw winkelwagen";
+          
+            Leeg.textContent = "U heeft geen producten in uw winkelwagen :(";
             Leeg.style.textAlign = "center";
 
             var mainPage = document.querySelector('.main-page');
             mainPage.appendChild(Leeg);
         }
     }
+    
 
     document.addEventListener('click', function (event) {
         if (event.target.classList.contains('Delete')) {
@@ -121,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     var totalPriceString = totalPriceElement.innerText;
                     var totalPrice = parseFloat(totalPriceString.replace(/[^\d.-]/g, ''));
                     totalPrice -= productPrice;
-                    totalPriceElement.innerText = "Total: €" + totalPrice.toFixed(2);
+                    totalPriceElement.innerText = "Totaal: €" + totalPrice.toFixed(2);
 
                     // Remove the product from the display
                     productContainer.remove();
