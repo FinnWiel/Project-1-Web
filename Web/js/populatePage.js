@@ -50,14 +50,14 @@ window.addEventListener("load", (event) => {
     //Get data from json file and make it into HTML
     const main = document.querySelector(".kopen-page");
     const jsonFile = "data/fietsen.json";
-    //change value of item to another id to change the bike displaying
+
+    //change value of item to id in the URL
     const searchParams = new URLSearchParams(window.location.search);
     let item = searchParams.get('id');
 
     if(parseInt(item) <= 4 && parseInt(item) != 0){
         fetch(jsonFile)
         .then((response) => {
-            // console.log(response.json());
             return response.json();
         })
         .then((data) => {
@@ -86,7 +86,7 @@ window.addEventListener("load", (event) => {
                 `;
             });
 
-            // Add event listeners to all "Add to Cart" buttons
+            // Add event listeners to all "addCart" buttons
             const addToCartButtons = document.querySelectorAll(".addCart");
             addToCartButtons.forEach(button => {
                 button.addEventListener("click", addToCartClicked);

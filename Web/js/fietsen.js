@@ -1,6 +1,7 @@
 
 window.addEventListener("load", (event) => {
-//Get data from json file and make it into HTML
+
+//Get data from json file and get it into the HTML
 const main = document.querySelector(".main-page");
 const jsonFile = "data/fietsen.json";
 
@@ -27,4 +28,5 @@ fetch(jsonFile)
       `;
       });
   });
+
 });
