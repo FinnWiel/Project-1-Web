@@ -91,11 +91,11 @@
     align-self: center;
 }
 
-@media only screen and (max-width: 688px) {
+@media only screen and (max-width: 788px) {
 
     .Products {
-        font-size: 13px;
-        margin: 20px;
+        font-size: 15px;
+        margin: 5px;
         background-color: rgb(255, 255, 255);
         border-bottom: black 2px solid;
         display: flex;
@@ -109,32 +109,44 @@
     }
 
     #TotalHolder {
-        font-size: 20px;
+        font-size: 15px;
         margin: 20px;
         background-color: rgb(255, 255, 255);
         border-bottom: black 2px solid;
         display: flex;
     }
+
+    #Checkout{
+        font-size: 15px;
+        width: 20px;
+        height: 20px;
+    }
+    #total{
+        font-size: 15px;
+    }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 570px) {
     #Product-holder {
+        font-size: 15px;
         padding: 20px;
         padding-bottom: 30px;
         height: 85%;
         background-color: #ffffff;
-        border-bottom: solid 1px black;
+       
     }
 
     .Products ul {
         justify-content: center;
         vertical-align: middle;
-        font-size: 20px;
-        margin: 20px;
+        font-size: 15px;
         background-color: rgb(255, 255, 255);
         border-bottom: black 2px solid;
         display: flex;
         flex-direction: row;
+    }
+    .Products li {
+        margin: 8px;
     }
 
 }

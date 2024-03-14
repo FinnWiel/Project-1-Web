@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     var cartData = JSON.parse(localStorage.getItem('cart'));
     var productHolder = document.getElementById('Product-holder');
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
             productHolder.appendChild(productDiv);
             totalPrice += parseFloat(replacedPrice) * quantity;
         });
-
     } document.getElementById('total').innerText = "Total: €" + totalPrice.toFixed(2);
 
     // Event listener for plus and minus buttons
@@ -69,14 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.setItem('cart', JSON.stringify(cartData));
         }
     });
-
     var checkoutButton = document.getElementById('Checkout');
     checkoutButton.addEventListener('click', function () {
         alert("Total: €" + totalPrice.toFixed(2));
     });
-
 });
-
 
 //Bike on footer
 document.addEventListener('DOMContentLoaded', domloaded, false);
@@ -125,10 +120,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (checkoutHolder) {
                 checkoutHolder.remove();
-
             }
 
-            var Leeg = document.createElement('h1');
+            var Leeg = document.createElement('p');
             Leeg.textContent = "U heeft geen producten in uw winkelwagen";
             Leeg.style.textAlign = "center";
 
