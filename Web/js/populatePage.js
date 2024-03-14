@@ -92,7 +92,7 @@ function addToCartClicked(event) {
         cart.push(cartItem);
         localStorage.setItem('cart', JSON.stringify(cart));
     
-        // Optionally, you can provide feedback to the user that the item has been added to the cart.
+        // alert that shows that the item is already in the localstorage.
         alert(name + " has been added to your cart.");
     
 }

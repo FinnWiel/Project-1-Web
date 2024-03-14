@@ -112,7 +112,7 @@ a {
    margin-left: 15%;
     margin-right: 15%;
 }
-ul.slides {
+.slides {
     display: block;
     position: relative;
     height: 600px;
@@ -123,7 +123,7 @@ ul.slides {
     list-style: none;
 }
 
-ul.slides input {
+.slides input {
     display: none; 
 }
 .slide-container { 
