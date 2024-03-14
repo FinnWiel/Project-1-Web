@@ -253,7 +253,7 @@ namespace Kassasysteem
         private double GetTagValuesCombobox(ComboBox comboBox)
         {
             double tagValue = 0.0;
-
+            //Gets the value of the tag in XAML
             if (comboBox.SelectedItem is ComboBoxItem selectedItem && double.TryParse(selectedItem.Tag?.ToString().Replace(",", ""), out tagValue))
             {
                 return tagValue;
@@ -282,7 +282,7 @@ namespace Kassasysteem
 
             return combinedTagValues;
         }
-        // Function to update the total price
+
         // Function to update the total price
         void UpdateTotalPrice()
         {
@@ -373,6 +373,7 @@ namespace Kassasysteem
             UpdateTotalPrice();
         }
 
+        //Open calculator
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Rekenmachine rekenmachine = new Rekenmachine();
