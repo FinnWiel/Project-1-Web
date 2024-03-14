@@ -1,133 +1,182 @@
 
-//************* CART PAGE JS ***************************///*
 document.addEventListener('DOMContentLoaded', function () {
+    var cartData = JSON.parse(localStorage.getItem('cart'));
+    var productHolder = document.getElementById('Product-holder');
+    var totalPrice = 0;
+    // Check if there are items in the cart
+    if (cartData && cartData.length > 0) {
+        // Loop through each item in the cart data
+        cartData.forEach(function (item) {
+            var price = item.price;
+            var replacedPrice = price.replace("$", "");
+            var quantity = item.quantity || 1;
+            // Create a div element to hold each product
+            var productDiv = document.createElement('div');
 
-    // Select all delete buttons
-    var deleteButtons = document.querySelectorAll('.Delete');
+            // Create the HTML structure for each product item
+            productHolder.innerHTML += `
+                    <div class="Products">  
+                        <ul>
+                            <li class="Photo-bike"><img alt="Fiets" style="height: 100px;" src="${item.image}"> </li>
+                            <li class="Bike-name">${item.name}</li>
+                            <li class="Price">${item.price}</li>
+                            <li class="Delete">verwijderen</li>
+                            <li class="Amount">
+                                <span class="minus">-</span>
+                                <span class="number">1</span>
+                                <span class="plus">+</span>
+                            </li>
+                        </ul> 
+                    </div>
+                `;
+            // Append the productDiv to productHolder //
+            productHolder.appendChild(productDiv);
+            totalPrice += parseFloat(replacedPrice) * quantity;
+        });
+
+    } document.getElementById('total').innerText = "Total: €" + totalPrice.toFixed(2);
+
+    // Event listener for plus and minus buttons
+    productHolder.addEventListener('click', function (event) {
+        var target = event.target;
+        if (target.classList.contains('plus') || target.classList.contains('minus')) {
+            var productContainer = target.closest('.Products');
+            var quantityElement = productContainer.querySelector('.number');
+            var quantity = parseInt(quantityElement.innerText);
+            var priceElement = productContainer.querySelector('.Price');
+            var priceString = priceElement.innerText;
+            var productPrice = parseFloat(priceString.replace(/[^\d.-]/g, ''));
+
+            if (target.classList.contains('plus')) {
+                quantity++;
+                totalPrice += productPrice;
+            } else {
+                if (quantity > 1) {
+                    quantity--;
+                    totalPrice -= productPrice;
+                }
+            }
+            quantityElement.innerText = quantity;
+            document.getElementById('total').innerText = "Total: €" + totalPrice.toFixed(2);
+
+            // Update the quantity in the cartData and localStorage
+            var productName = productContainer.querySelector('.Bike-name').innerText;
+            cartData.forEach(function (item) {
+                if (item.name === productName) {
+                    item.quantity = quantity;
+                }
+            });
+            localStorage.setItem('cart', JSON.stringify(cartData));
+        }
+    });
+
+    var checkoutButton = document.getElementById('Checkout');
+    checkoutButton.addEventListener('click', function () {
+        alert("Total: €" + totalPrice.toFixed(2));
+    });
+
+});
+
+
+//Bike on footer
+document.addEventListener('DOMContentLoaded', domloaded, false);
+function domloaded() {
+
+    //Create canvas
+    var can = document.getElementById('canvas');
+    can.height = 40; can.width = window.innerWidth;
+    var ctx = can.getContext('2d');
+
+    var x = 0, y = can.height;
+    var speed = 1;
+
+    function draw() {
+        //Draw canvas
+        can.width = window.innerWidth
+        ctx.fillStyle = "#56BDE9";
+        ctx.fillRect(0, 0, can.width, can.height);
+
+        //Draw bike
+        ctx.beginPath();
+        ctx.font = '30px FontAwesome';
+        ctx.fillStyle = 'white';
+        ctx.fillText('\uf206', x, y); //'\uf206' is unicode for the bike 
+        ctx.fill();
+
+        //Move bike
+        x += speed;
+
+        if (x >= can.width + 100) {
+            x = -50;
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
+}
+document.addEventListener('DOMContentLoaded', function () {
 
     // Function to check if there are any products left
     function checkProducts() {
         var productHolder = document.getElementById('Product-holder');
         var products = productHolder.querySelectorAll('.Products');
-
+        var checkoutHolder = document.querySelector('.CheckoutHolder');
         // If there are no products left, remove the CheckoutHolder and display text
         if (products.length === 0) {
-            var checkoutHolder = document.querySelector('.CheckoutHolder');
+
             if (checkoutHolder) {
                 checkoutHolder.remove();
+
             }
 
-            // Create a text element
-            var Leeg = document.createElement('p');
+            var Leeg = document.createElement('h1');
             Leeg.textContent = "U heeft geen producten in uw winkelwagen";
             Leeg.style.textAlign = "center";
 
-            // Append the text element to the main page
             var mainPage = document.querySelector('.main-page');
             mainPage.appendChild(Leeg);
         }
     }
 
-   
-
-        // Select all plus, minus, and number elements
-        var plusButtons = document.querySelectorAll(".plus");
-        var plusButtons2 = document.querySelectorAll(".plus2");
-
-        var minusButtons = document.querySelectorAll(".minus");
-        var minusButtons2 = document.querySelectorAll(".minus2");
-
-        var numberDisplays = document.querySelectorAll(".number");
-        var numberDisplays2 = document.querySelectorAll(".number2");
-
-        var priceDisplays = document.querySelectorAll(".Price");
-        var priceDisplays2 = document.querySelectorAll(".Price2");
-
-        // Loop through each plus button
-        plusButtons.forEach(function (plusButton, index) {
-            plusButton.addEventListener("click", function () {
-                var currentValue = parseInt(numberDisplays[index].textContent);
-                var currentPriceValue = parseFloat(priceDisplays[index].textContent.replace("€", ""));
-                var priceItem = 150.00;
-
-                numberDisplays[index].textContent = currentValue + 1;
-                priceDisplays[index].textContent = "€" + (currentPriceValue + priceItem).toFixed(2);
-                updateTotal();
-            });
-        });
-
-        // Loop through each plus button
-        plusButtons2.forEach(function (plusButtons2, index) {
-            plusButtons2.addEventListener("click", function () {
-
-                var currentValue = parseInt(numberDisplays2[index].textContent);
-                var currentPriceValue = parseFloat(priceDisplays2[index].textContent.replace("€", ""));
-                var priceItem = 900.00;
-
-                numberDisplays2[index].textContent = currentValue + 1;
-                priceDisplays2[index].textContent = "€" + (currentPriceValue + priceItem).toFixed(2);
-                updateTotal();
-            });
-        });
-
-        // Loop through each minus button
-        minusButtons.forEach(function (minusButtons, index) {
-            minusButtons.addEventListener("click", function () {
-
-                var currentValue = parseInt(numberDisplays[index].textContent);
-                var currentPriceValue = parseFloat(priceDisplays[index].textContent.replace("€", ""));
-                var priceItem = 150.00;
-
-                if (currentValue > 1) {
-                    numberDisplays[index].textContent = currentValue - 1;
-                    priceDisplays[index].textContent = "€" + (currentPriceValue - priceItem).toFixed(2);
-                    updateTotal();
-                }
-            });
-        });
-
-        minusButtons2.forEach(function (minusButtons2, index) {
-            minusButtons2.addEventListener("click", function () {
-
-                var currentValue = parseInt(numberDisplays2[index].textContent);
-                var currentPriceValue = parseFloat(priceDisplays2[index].textContent.replace("€", ""));
-                var priceItem = 900.00;
-
-                if (currentValue > 1) {
-                    numberDisplays2[index].textContent = currentValue - 1;
-                    priceDisplays2[index].textContent = "€" + (currentPriceValue - priceItem).toFixed(2);
-                    updateTotal();
-                }
-            });
-        });
-
-        // Loop through each delete button
-        deleteButtons.forEach(function (button) {
-        button.addEventListener('click', function (event) {
-            // Get the parent element of the clicked delete button (which is the container div)
+    document.addEventListener('click', function (event) {
+        if (event.target.classList.contains('Delete')) {
             var productContainer = event.target.closest('.Products');
+            var cartData = JSON.parse(localStorage.getItem('cart'));
+
             if (productContainer) {
-                productContainer.remove();
-                checkProducts();
-                updateTotal();
+                // Extract the price of the product being deleted
+                var priceElement = productContainer.querySelector('.Price');
+                var priceString = priceElement.innerText;
+                var productPrice = parseFloat(priceString.replace(/[^\d.-]/g, ''));
+
+                // Remove the deleted product from localStorage
+                if (cartData && cartData.length > 0) {
+                    var productName = productContainer.querySelector('.Bike-name').innerText;
+                    cartData = cartData.filter(function (item) {
+                        return item.name !== productName;
+                    });
+
+                    // Update the cart data in localStorage
+                    localStorage.setItem('cart', JSON.stringify(cartData));
+
+                    // Update the total price
+                    var totalPriceElement = document.getElementById('total');
+                    var totalPriceString = totalPriceElement.innerText;
+                    var totalPrice = parseFloat(totalPriceString.replace(/[^\d.-]/g, ''));
+                    totalPrice -= productPrice;
+                    totalPriceElement.innerText = "Total: €" + totalPrice.toFixed(2);
+
+                    // Remove the product from the display
+                    productContainer.remove();
+
+                    // Check if there are any products left
+                    checkProducts();
+                }
             }
-        });
-        });
-
-        function updateTotal() {
-            var total = 0;
-
-            // Loop through each price display and sum up the total
-            priceDisplays.forEach(function (priceDisplay) {
-                total += parseFloat(priceDisplay.textContent.replace("€", ""));
-            });
-
-            priceDisplays2.forEach(function (priceDisplay2) {
-                total += parseFloat(priceDisplay2.textContent.replace("€", ""));
-            });
-
-            // Update the total display element
-            document.getElementById("total").textContent = "Total: €" + total.toFixed(2);
         }
-        updateTotal();
+    });
+
+    checkProducts();
 });
+
+
+

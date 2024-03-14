@@ -1,5 +1,5 @@
 
-//Gets the current year for copyright in footer
+
 window.addEventListener("load", (event) => {
     let copyright = document.getElementById("year");
     let currentYear = new Date().getFullYear();
