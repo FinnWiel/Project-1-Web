@@ -3,21 +3,23 @@ window.addEventListener("load", (event) => {
     //Get data from json file and make it into HTML
     const main = document.querySelector(".kopen-page");
     const jsonFile = "data/fietsen.json";
-    //change value of item to another id to change the bike displaying
+
+    //change value of item to id in the URL
     const searchParams = new URLSearchParams(window.location.search);
     let item = searchParams.get('id');
 
     if (parseInt(item) <= 4 && parseInt(item) != 0) {
         fetch(jsonFile)
-            .then((response) => {
-                // console.log(response.json());
-                return response.json();
-            })
-            .then((data) => {
-                data.filter(x => x.id == item).map((product) => {
-                    const { id, name, price, image, brand, description, color } = product;
-                    main.innerHTML +=
-                        `
+        .then((response) => {
+            // console.log(response.json());
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            data.filter(x => x.id == item).map((product) => {
+                const { id, name, price, image, brand, description, color } = product;
+                main.innerHTML += 
+                `
                 <div class="fiets">
                     <img src="${image}" alt="${name}">
                     <div class="fietsOut">
@@ -41,15 +43,15 @@ window.addEventListener("load", (event) => {
                 `;
                 });
 
-                // Add event listeners to all "Add to Cart" buttons
-                const addToCartButtons = document.querySelectorAll(".addCart");
-                addToCartButtons.forEach(button => {
-                    button.addEventListener("click", addToCartClicked);
-
-                });
+            // Add event listeners to all "Add to Cart" buttons
+            const addToCartButtons = document.querySelectorAll(".addCart");
+            addToCartButtons.forEach(button => {
+                button.addEventListener("click", addToCartClicked);
+               
             });
-    } else {
-        `<h1>Oops, seems like something went wrong!</h1>`;
+        });
+    }   else {
+       `<h1>Oops, seems like something went wrong!</h1>`;
     }
 });
 

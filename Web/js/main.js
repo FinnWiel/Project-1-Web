@@ -1,6 +1,6 @@
 
+
 window.addEventListener("load", (event) => {
-    //Gets the current year for footer
     let copyright = document.getElementById("year");
     let currentYear = new Date().getFullYear();
     copyright.innerHTML = currentYear;
@@ -17,16 +17,18 @@ function toggleMobileNav() {
     bars.forEach((bar) => bar.classList.toggle("x"));
 }
 
+
 function huurFietsen() {
     let checkbox = document.querySelectorAll(".cb");
     let oneChecked = false;
+    //Check if any boxes are checked
     for (let i = 0; i < checkbox.length; i++) {
         if (checkbox[i].checked == true) {
             oneChecked = true
         }
     }
 
-
+    //If atleast one box was checed alert in browser with name and price
     if (oneChecked) {
         for (let i = 0; i < checkbox.length; i++) {
             if (checkbox[i].checked == true) {
@@ -77,8 +79,6 @@ function domloaded() {
     }
     draw();
 }
-
-
 
 
 //Dynamic open/closed message on homepage
