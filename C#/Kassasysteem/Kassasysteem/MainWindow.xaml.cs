@@ -72,7 +72,17 @@ namespace Kassasysteem
 
                 cmbFiets.SelectedIndex = -1;
                 txbAantalDagen.Text = "";
-                //TODO: Deselect checkboxes
+                
+                //Deselect checkboxes
+                checkbox1.IsChecked = false;
+                checkbox2.IsChecked = false;
+                checkbox3.IsChecked = false;
+                checkbox4.IsChecked = false;
+                checkbox5.IsChecked = false;
+                checkbox6.IsChecked = false;
+                checkbox7.IsChecked = false;
+                checkbox8.IsChecked = false;
+
 
                 // Create DockPanel
                 DockPanel dockPanel = new DockPanel();
