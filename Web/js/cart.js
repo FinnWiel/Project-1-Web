@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
             var price = item.price;
             var replacedPrice = price.replace("$", "");
             var quantity = item.quantity || 1;
-            // Create a div element to hold each product
             var productDiv = document.createElement('div');
 
             // Create the HTML structure for each product item
@@ -32,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
             productHolder.appendChild(productDiv);
             totalPrice += parseFloat(replacedPrice) * quantity;
         });
-    } document.getElementById('total').innerText = "Total: €" + totalPrice.toFixed(2);
+    } document.getElementById('total').innerText = "Totaal: €" + totalPrice.toFixed(2);
 
     // Event listener for plus and minus buttons
     productHolder.addEventListener('click', function (event) {
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
             quantityElement.innerText = quantity;
-            document.getElementById('total').innerText = "Total: €" + totalPrice.toFixed(2);
+            document.getElementById('total').innerText = "Totaal: €" + totalPrice.toFixed(2);
 
             // Update the quantity in the cartData and localStorage
             var productName = productContainer.querySelector('.Bike-name').innerText;
@@ -69,45 +68,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     var checkoutButton = document.getElementById('Checkout');
     checkoutButton.addEventListener('click', function () {
-        alert("Total: €" + totalPrice.toFixed(2));
+        alert("Totaal: €" + totalPrice.toFixed(2));
     });
 });
-
-//Bike on footer
-document.addEventListener('DOMContentLoaded', domloaded, false);
-function domloaded() {
-
-    //Create canvas
-    var can = document.getElementById('canvas');
-    can.height = 40; can.width = window.innerWidth;
-    var ctx = can.getContext('2d');
-
-    var x = 0, y = can.height;
-    var speed = 1;
-
-    function draw() {
-        //Draw canvas
-        can.width = window.innerWidth
-        ctx.fillStyle = "#56BDE9";
-        ctx.fillRect(0, 0, can.width, can.height);
-
-        //Draw bike
-        ctx.beginPath();
-        ctx.font = '30px FontAwesome';
-        ctx.fillStyle = 'white';
-        ctx.fillText('\uf206', x, y); //'\uf206' is unicode for the bike 
-        ctx.fill();
-
-        //Move bike
-        x += speed;
-
-        if (x >= can.width + 100) {
-            x = -50;
-        }
-        requestAnimationFrame(draw);
-    }
-    draw();
-}
 document.addEventListener('DOMContentLoaded', function () {
 
     // Function to check if there are any products left
@@ -121,15 +84,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (checkoutHolder) {
                 checkoutHolder.remove();
             }
-
+            var mainPage = document.querySelector('.main-page');
             var Leeg = document.createElement('p');
-            Leeg.textContent = "U heeft geen producten in uw winkelwagen";
+          
+            Leeg.textContent = "U heeft geen producten in uw winkelwagen :(";
             Leeg.style.textAlign = "center";
 
             var mainPage = document.querySelector('.main-page');
             mainPage.appendChild(Leeg);
         }
     }
+    
 
     document.addEventListener('click', function (event) {
         if (event.target.classList.contains('Delete')) {
@@ -157,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     var totalPriceString = totalPriceElement.innerText;
                     var totalPrice = parseFloat(totalPriceString.replace(/[^\d.-]/g, ''));
                     totalPrice -= productPrice;
-                    totalPriceElement.innerText = "Total: €" + totalPrice.toFixed(2);
+                    totalPriceElement.innerText = "Totaal: €" + totalPrice.toFixed(2);
 
                     // Remove the product from the display
                     productContainer.remove();
