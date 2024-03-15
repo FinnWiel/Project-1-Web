@@ -56,10 +56,10 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <CheckBox Tag="5,00" Click="CheckBox_Checked">Beschadigingen</CheckBox>
-                        <CheckBox Tag="10,00" Grid.Row="1" Click="CheckBox_Checked">Diefstal</CheckBox>
-                        <CheckBox Tag="5,00" Grid.Column="1" Click="CheckBox_Checked">Rechtsbijstand</CheckBox>
-                        <CheckBox Tag="2,50" Grid.Row="1" Grid.Column="1" Click="CheckBox_Checked">Ongevallen</CheckBox>
+                        <CheckBox Name="checkbox1" Tag="5,00" Click="CheckBox_Checked">Beschadigingen</CheckBox>
+                        <CheckBox Name="checkbox2" Tag="10,00" Grid.Row="1" Click="CheckBox_Checked">Diefstal</CheckBox>
+                        <CheckBox Name="checkbox3" Tag="5,00" Grid.Column="1" Click="CheckBox_Checked">Rechtsbijstand</CheckBox>
+                        <CheckBox Name="checkbox4" Tag="2,50" Grid.Row="1" Grid.Column="1" Click="CheckBox_Checked">Ongevallen</CheckBox>
                     </Grid>
 
                 </StackPanel>
@@ -75,10 +75,10 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <CheckBox Tag="15,00" Click="CheckBox_Checked">Ophaalservice</CheckBox>
-                        <CheckBox Tag="10,00" Grid.Row="1" Click="CheckBox_Checked">Regenpak</CheckBox>
-                        <CheckBox Tag="12,50" Grid.Column="1" Click="CheckBox_Checked">Lunchpakket basis</CheckBox>
-                        <CheckBox Tag="20,00" Grid.Row="1" Grid.Column="1" Click="CheckBox_Checked">Lunchpakket uitgebreid</CheckBox>
+                        <CheckBox Name="checkbox5" Tag="15,00" Click="CheckBox_Checked">Ophaalservice</CheckBox>
+                        <CheckBox Name="checkbox6" Tag="10,00" Grid.Row="1" Click="CheckBox_Checked">Regenpak</CheckBox>
+                        <CheckBox Name="checkbox7" Tag="12,50" Grid.Column="1" Click="CheckBox_Checked">Lunchpakket basis</CheckBox>
+                        <CheckBox Name="checkbox8" Tag="20,00" Grid.Row="1" Grid.Column="1" Click="CheckBox_Checked">Lunchpakket uitgebreid</CheckBox>
                     </Grid>
 
                 </StackPanel>
