@@ -84,13 +84,13 @@ document.addEventListener('DOMContentLoaded', function () {
             if (checkoutHolder) {
                 checkoutHolder.remove();
             }
-            var mainPage = document.querySelector('.main-page');
+            var mainPage = document.getElementById('Product-holder');
             var Leeg = document.createElement('p');
           
             Leeg.textContent = "U heeft geen producten in uw winkelwagen :(";
             Leeg.style.textAlign = "center";
 
-            var mainPage = document.querySelector('.main-page');
+            var mainPage = document.getElementById('Product-holder');
             mainPage.appendChild(Leeg);
         }
     }

@@ -254,7 +254,7 @@ input:checked + .slide-container .carousel-controls label {
   font-weight: bold;
 } 
 .active {
-  background-color: #2B7493;
+  background-color: #1d4d62;
   font-weight: bold;
 }
 .search{
